@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Checkout — EOS Clothing Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter",system-ui,sans-serif;background:#f7f7f7;color:#1a1a1a;min-height:100vh}
+a{color:inherit;text-decoration:none}
+
+header{background:#fff;border-bottom:1px solid #e5e5e5;padding:16px 24px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:900;font-size:1.1rem;letter-spacing:-.02em;text-transform:uppercase}
+.secure{font-size:.72rem;color:#888;display:flex;align-items:center;gap:6px}
+.secure svg{width:14px;height:14px}
+
+.checkout-wrap{max-width:960px;margin:0 auto;padding:32px 24px;display:grid;grid-template-columns:1fr 380px;gap:32px}
+
+/* Left - Cart + Payment */
+.left h2{font-size:1rem;font-weight:800;text-transform:uppercase;margin-bottom:16px;letter-spacing:.02em}
+.section{background:#fff;border:1px solid #e5e5e5;padding:20px;margin-bottom:20px}
+.section h3{font-size:.82rem;font-weight:700;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #e5e5e5}
+
+/* Cart items */
+.cart-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #f0f0f0}
+.cart-item:last-child{border-bottom:none}
+.ci-img{width:56px;height:72px;background:#eee;flex-shrink:0;overflow:hidden}
+.ci-img img{width:100%;height:100%;object-fit:cover}
+.ci-info{flex:1}
+.ci-name{font-size:.82rem;font-weight:600}
+.ci-meta{font-size:.72rem;color:#888;margin-top:2px}
+.ci-price{font-size:.82rem;font-weight:700;text-align:right;white-space:nowrap}
+.empty-cart{text-align:center;padding:32px;color:#888;font-size:.88rem}
+
+/* Payment tabs */
+.pay-tabs{display:flex;gap:0;margin-bottom:16px}
+.pay-tab{flex:1;padding:12px;text-align:center;font-size:.78rem;font-weight:700;text-transform:uppercase;
+  letter-spacing:.04em;border:1.5px solid #e5e5e5;cursor:pointer;transition:.15s;background:#fff;color:#888}
+.pay-tab:first-child{border-right:none}
+.pay-tab.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a}
+
+/* Form */
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:.72rem;font-weight:600;text-transform:uppercase;color:#555;margin-bottom:6px;letter-spacing:.04em}
+.form-group input{width:100%;padding:12px 14px;border:1.5px solid #e5e5e5;font-family:inherit;font-size:.86rem;
+  color:#1a1a1a;outline:none;transition:border-color .15s}
+.form-group input:focus{border-color:#1a1a1a}
+.form-group input::placeholder{color:#bbb}
+.row{display:flex;gap:12px}
+.row .form-group{flex:1}
+
+.card-icons{display:flex;gap:8px;margin-bottom:14px}
+.card-icon{width:42px;height:28px;border:1px solid #e5e5e5;border-radius:3px;display:flex;align-items:center;
+  justify-content:center;font-size:.56rem;font-weight:800;color:#555;background:#fafafa}
+
+/* Venmo section */
+.venmo-section{display:none}
+
+/* Right - Order Summary */
+.summary{background:#fff;border:1px solid #e5e5e5;padding:20px;position:sticky;top:24px;height:fit-content}
+.summary h3{font-size:.82rem;font-weight:700;text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #e5e5e5}
+.sum-line{display:flex;justify-content:space-between;font-size:.82rem;margin-bottom:8px}
+.sum-line.dim{color:#888}
+.sum-line.total{font-weight:800;font-size:1rem;padding-top:10px;margin-top:10px;border-top:1px solid #e5e5e5}
+.sum-line.green{color:#2d5a27}
+
+.place-order{width:100%;background:#2d5a27;color:#fff;padding:16px;font-size:.82rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;border:none;cursor:pointer;font-family:inherit;
+  margin-top:16px;transition:background .2s}
+.place-order:hover{background:#1e3d1a}
+.place-order:disabled{background:#bbb;cursor:not-allowed}
+.secure-note{text-align:center;font-size:.68rem;color:#888;margin-top:10px;display:flex;align-items:center;justify-content:center;gap:4px}
+
+.back-link{display:inline-block;margin-bottom:16px;font-size:.78rem;color:#888;font-weight:500}
+.back-link:hover{color:#1a1a1a}
+
+@media(max-width:768px){
+  .checkout-wrap{grid-template-columns:1fr;gap:20px}
+  .summary{position:static}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="index.html">EOS Clothing Co.</a>
+  <span class="secure">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="10" height="7" rx="1"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
+    Secure Checkout
+  </span>
+</header>
+
+<div class="checkout-wrap">
+  <div class="left">
+    <a class="back-link" href="index.html">← Back to shopping</a>
+
+    <div class="section">
+      <h3>Your Cart</h3>
+      <div id="cartItems"><div class="empty-cart">Your cart is empty</div></div>
+    </div>
+
+    <div class="section" id="paymentSection" style="display:none">
+      <h3>Payment Method</h3>
+      <div class="pay-tabs">
+        <div class="pay-tab active" data-tab="card">💳 Credit Card</div>
+        <div class="pay-tab" data-tab="venmo">Venmo</div>
+      </div>
+
+      <div class="card-section" id="cardSection">
+        <div class="card-icons">
+          <div class="card-icon">VISA</div>
+          <div class="card-icon">MC</div>
+          <div class="card-icon">AMEX</div>
+          <div class="card-icon">DISC</div>
+        </div>
+        <div class="form-group">
+          <label>Cardholder Name</label>
+          <input type="text" id="cardName" placeholder="John Doe">
+        </div>
+        <div class="form-group">
+          <label>Card Number</label>
+          <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+        </div>
+        <div class="row">
+          <div class="form-group">
+            <label>Expiration</label>
+            <input type="text" id="cardExp" placeholder="MM / YY" maxlength="7">
+          </div>
+          <div class="form-group">
+            <label>CVC</label>
+            <input type="text" id="cardCvc" placeholder="123" maxlength="4">
+          </div>
+        </div>
+      </div>
+
+      <div class="venmo-section" id="venmoSection">
+        <div class="form-group">
+          <label>Venmo Username</label>
+          <input type="text" id="venmoName" placeholder="@YourVenmoName">
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="shippingSection" style="display:none">
+      <h3>Shipping Address</h3>
+      <div class="form-group">
+        <label>Full Name</label>
+        <input type="text" id="shipName" placeholder="John Doe">
+      </div>
+      <div class="form-group">
+        <label>Address</label>
+        <input type="text" id="shipAddr" placeholder="123 Main St">
+      </div>
+      <div class="row">
+        <div class="form-group">
+          <label>City</label>
+          <input type="text" id="shipCity" placeholder="New York">
+        </div>
+        <div class="form-group">
+          <label>State</label>
+          <input type="text" id="shipState" placeholder="NY" maxlength="2">
+        </div>
+        <div class="form-group">
+          <label>ZIP</label>
+          <input type="text" id="shipZip" placeholder="10001" maxlength="10">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="summary">
+      <h3>Order Summary</h3>
+      <div id="sumLines"></div>
+      <button class="place-order" id="placeOrder" disabled>Place Order</button>
+      <div class="secure-note">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="10" height="7" rx="1"/><path d="M5 7V5a3 3 0 016 0v2"/></svg>
+        SSL Encrypted • Secure Payment
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const fmt=n=>'$'+n.toFixed(2);
+const FREE_SHIP=300;
+
+// Load cart from localStorage (shared with main site)
+let cart=[];
+try{cart=JSON.parse(localStorage.getItem('eos_cart')||'[]');}catch(e){}
+
+const PRODUCTS={
+ 1:{name:'Featherweight Cotton Tee',price:29.99,img:'images/w-tee.jpg'},
+ 2:{name:'Sculpt Rib Tank',price:7.99,img:'images/w-tank.jpg'},
+ 3:{name:'Draped Jersey Top',price:33.99,img:'images/w-blouse.jpg'},
+ 4:{name:'Bias Silk Camisole',price:39.99,img:'images/w-cami.jpg'},
+ 5:{name:'Linen Camp Shirt',price:49.99,img:'images/w-linen-shirt.jpg'},
+ 6:{name:'Oversized Poplin Shirt',price:54.99,img:'images/w-poplin.jpg'},
+ 7:{name:'Merino Crew Knit',price:59.99,img:'images/w-sweater.jpg'},
+ 8:{name:'Cashmere Turtleneck',price:97.99,img:'images/w-turtleneck.jpg'},
+ 9:{name:'Cropped Bouclé Jacket',price:124.99,img:'images/w-jacket.jpg'},
+ 10:{name:'Structured Wool Blazer',price:199.99,img:'images/w-blazer.jpg'},
+ 11:{name:'Organic Cotton Short',price:24.99,img:'images/w-shorts.jpg'},
+ 12:{name:'Ribbed Knit Lounge Pant',price:34.99,img:'images/w-lounge.jpg'},
+ 13:{name:'Satin Slip Skirt',price:44.99,img:'images/w-skirt.jpg'},
+ 14:{name:'Raw Hem Straight Jean',price:59.99,img:'images/w-jeans.jpg'},
+ 15:{name:'Bias-Cut Midi Skirt',price:54.99,img:'images/w-midi-skirt.jpg'},
+ 16:{name:'Cropped Flare Denim',price:64.99,img:'images/w-flare.jpg'},
+ 17:{name:'High-Rise Tailored Trouser',price:79.99,img:'images/w-trousers.jpg'},
+ 18:{name:'Wide-Leg Crepe Pant',price:99.99,img:'images/w-wide-leg.jpg'},
+ 19:{name:'Pleated Wool Skirt',price:69.99,img:'images/w-pleat-skirt.jpg'},
+ 20:{name:'Leather Pencil Skirt',price:124.99,img:'images/w-pencil-skirt.jpg'},
+ 21:{name:'Pima Cotton Tee',price:29.99,img:'images/m-tee.jpg'},
+ 22:{name:'Heavyweight Boxy Tee',price:34.99,img:'images/m-boxy-tee.jpg'},
+ 23:{name:'Waffle Henley',price:39.99,img:'images/m-henley.jpg'},
+ 24:{name:'Camp Collar Shirt',price:47.99,img:'images/m-camp-shirt.jpg'},
+ 25:{name:'Oxford Button-Down',price:54.99,img:'images/m-oxford.jpg'},
+ 26:{name:'Garment-Dyed Overshirt',price:59.99,img:'images/m-overshirt.jpg'},
+ 27:{name:'Merino Half-Zip',price:79.99,img:'images/m-halfzip.jpg'},
+ 28:{name:'Cashmere Crew Sweater',price:97.99,img:'images/m-sweater.jpg'},
+ 29:{name:'Quilted Liner Jacket',price:124.99,img:'images/m-quilted.jpg'},
+ 30:{name:'Wool Topcoat',price:199.99,img:'images/m-topcoat.jpg'},
+ 31:{name:'Drawstring Lounge Short',price:7.99,img:'images/m-lounge-short.jpg'},
+ 32:{name:'Garment-Dyed Sweatshort',price:33.99,img:'images/m-sweatshort.jpg'},
+ 33:{name:'Linen Drawstring Pant',price:43.99,img:'images/m-linen-pant.jpg'},
+ 34:{name:'Tapered Tech Chino',price:49.99,img:'images/m-chino.jpg'},
+ 35:{name:'Relaxed Carpenter Pant',price:54.99,img:'images/m-carpenter.jpg'},
+ 36:{name:'Five-Pocket Cord Pant',price:44.99,img:'images/m-cord.jpg'},
+ 37:{name:'Pull-On Travel Trouser',price:59.99,img:'images/m-travel.jpg'},
+ 38:{name:'Pleated Wool Trouser',price:69.99,img:'images/m-pleat.jpg'},
+ 39:{name:'Selvedge Straight Jean',price:64.99,img:'images/m-selvedge.jpg'},
+ 40:{name:'Raw Denim Loose Jean',price:79.99,img:'images/m-raw-denim.jpg'}
+};
+
+function renderCart(){
+ const el=document.getElementById('cartItems');
+ const pay=document.getElementById('paymentSection');
+ const ship=document.getElementById('shippingSection');
+ if(!cart.length){
+  el.innerHTML='<div class="empty-cart">Your cart is empty. <a href="index.html" style="color:#2d5a27;text-decoration:underline">Go shopping</a></div>';
+  pay.style.display='none'; ship.style.display='none';
+  return;
+ }
+ pay.style.display='block'; ship.style.display='block';
+ el.innerHTML=cart.map(c=>{
+  const p=PRODUCTS[c.id];
+  if(!p)return '';
+  return `<div class="cart-item">
+   <div class="ci-img"><img src="${p.img}" alt="${p.name}"></div>
+   <div class="ci-info"><div class="ci-name">${p.name}</div><div class="ci-meta">Qty: ${c.qty}</div></div>
+   <div class="ci-price">${fmt(p.price*c.qty)}</div>
+  </div>`;
+ }).join('');
+}
+
+function renderSummary(){
+ const subtotal=cart.reduce((s,c)=>{const p=PRODUCTS[c.id];return s+(p?p.price*c.qty:0);},0);
+ const shipping=subtotal>=FREE_SHIP?0:9.99;
+ const tax=subtotal*0.08;
+ const total=subtotal+shipping+tax;
+ const el=document.getElementById('sumLines');
+ el.innerHTML=`
+  <div class="sum-line dim"><span>Subtotal (${cart.reduce((s,c)=>s+c.qty,0)} items)</span><span>${fmt(subtotal)}</span></div>
+  <div class="sum-line ${shipping===0?'green':'dim'}"><span>Shipping</span><span>${shipping===0?'FREE':fmt(shipping)}</span></div>
+  <div class="sum-line dim"><span>Est. Tax</span><span>${fmt(tax)}</span></div>
+  <div class="sum-line total"><span>Total</span><span>${fmt(total)}</span></div>
+ `;
+}
+
+// Payment tabs
+document.querySelectorAll('.pay-tab').forEach(tab=>{
+ tab.addEventListener('click',()=>{
+  document.querySelectorAll('.pay-tab').forEach(t=>t.classList.remove('active'));
+  tab.classList.add('active');
+  document.getElementById('cardSection').style.display=tab.dataset.tab==='card'?'block':'none';
+  document.getElementById('venmoSection').style.display=tab.dataset.tab==='venmo'?'block':'none';
+  checkForm();
+ });
+});
+
+// Card number formatting
+document.getElementById('cardNumber').addEventListener('input',function(e){
+ let v=this.value.replace(/\D/g,'').substring(0,16);
+ this.value=v.replace(/(.{4})/g,'$1 ').trim();
+});
+document.getElementById('cardExp').addEventListener('input',function(){
+ let v=this.value.replace(/\D/g,'').substring(0,4);
+ if(v.length>=2)v=v.substring(0,2)+' / '+v.substring(2);
+ this.value=v;
+});
+
+// Form validation
+function checkForm(){
+ const activeTab=document.querySelector('.pay-tab.active').dataset.tab;
+ let payValid=false;
+ if(activeTab==='card'){
+  const name=document.getElementById('cardName').value.trim();
+  const num=document.getElementById('cardNumber').value.replace(/\s/g,'');
+  const exp=document.getElementById('cardExp').value.trim();
+  const cvc=document.getElementById('cardCvc').value.trim();
+  payValid=name.length>1&&num.length>=12&&exp.length>=4&&cvc.length>=3;
+ }else{
+  payValid=document.getElementById('venmoName').value.trim().length>1;
+ }
+ const shipName=document.getElementById('shipName').value.trim();
+ const shipAddr=document.getElementById('shipAddr').value.trim();
+ const shipCity=document.getElementById('shipCity').value.trim();
+ const shipState=document.getElementById('shipState').value.trim();
+ const shipZip=document.getElementById('shipZip').value.trim();
+ const shipValid=shipName&&shipAddr&&shipCity&&shipState&&shipZip;
+ document.getElementById('placeOrder').disabled=!(payValid&&shipValid&&cart.length>0);
+}
+
+document.querySelectorAll('input').forEach(inp=>inp.addEventListener('input',checkForm));
+
+// Place order
+document.getElementById('placeOrder').addEventListener('click',()=>{
+ localStorage.removeItem('eos_cart');
+ window.location.href='thankyou.html';
+});
+
+renderCart();
+renderSummary();
+checkForm();
+</script>
+</body>
+</html>
