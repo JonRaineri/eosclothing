@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Order Confirmed — EOS Clothing Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Inter",system-ui,sans-serif;background:#fff;color:#1a1a1a;min-height:100vh;display:flex;flex-direction:column}
+header{border-bottom:1px solid #e5e5e5;padding:16px 24px;text-align:center}
+.logo{font-weight:900;font-size:1.1rem;letter-spacing:-.02em;text-transform:uppercase;text-decoration:none;color:#1a1a1a}
+.confirm{flex:1;display:flex;align-items:center;justify-content:center;padding:48px 24px}
+.confirm-box{text-align:center;max-width:480px}
+.check{width:72px;height:72px;border-radius:50%;background:#2d5a27;display:flex;align-items:center;justify-content:center;margin:0 auto 24px}
+.check svg{width:36px;height:36px;stroke:#fff;stroke-width:3;fill:none}
+h1{font-size:1.6rem;font-weight:800;text-transform:uppercase;margin-bottom:8px}
+.order-num{font-size:.82rem;color:#888;margin-bottom:24px}
+.details{background:#f7f7f7;border:1px solid #e5e5e5;padding:20px;margin-bottom:24px;text-align:left}
+.details p{font-size:.82rem;color:#555;margin-bottom:8px;line-height:1.5}
+.details p strong{color:#1a1a1a}
+.back-btn{display:inline-block;background:#1a1a1a;color:#fff;padding:14px 32px;font-size:.78rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.06em;text-decoration:none;transition:background .2s}
+.back-btn:hover{background:#2d5a27}
+footer{border-top:1px solid #e5e5e5;text-align:center;padding:20px;font-size:.68rem;color:#bbb}
+</style>
+</head>
+<body>
+<header><a class="logo" href="index.html">EOS Clothing Co.</a></header>
+<div class="confirm">
+  <div class="confirm-box">
+    <div class="check"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h1>Order Confirmed</h1>
+    <p class="order-num">Order #EOS-<span id="orderNum"></span></p>
+    <div class="details">
+      <p><strong>Thank you for your order!</strong></p>
+      <p>We've received your payment and your order is being processed. You'll receive a confirmation email shortly with tracking information.</p>
+      <p><strong>Estimated delivery:</strong> 5–7 business days</p>
+      <p><strong>Free shipping</strong> on all orders over $300</p>
+    </div>
+    <a class="back-btn" href="index.html">Continue Shopping</a>
+  </div>
+</div>
+<footer>© 2025 EOS Clothing Co. — All rights reserved.</footer>
+<script>
+document.getElementById('orderNum').textContent = Math.floor(100000+Math.random()*900000);
+</script>
+</body>
+</html>

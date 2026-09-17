@@ -440,7 +440,7 @@ document.addEventListener('click',e=>{
  const inc=e.target.closest('[data-inc]');if(inc){changeQty(+inc.dataset.inc,1);return;}
  const dec=e.target.closest('[data-dec]');if(dec){changeQty(+dec.dataset.dec,-1);return;}
 });
-document.getElementById('checkoutBtn').addEventListener('click',()=>toast('Demo storefront — checkout not connected'));
+document.getElementById('checkoutBtn').addEventListener('click',()=>{window.location.href='thankyou.html';});
 document.getElementById('searchBtn').addEventListener('click',()=>toast('Search coming soon — use the filters'));
 
 let toastTimer;const toastEl=document.getElementById('toast');
