@@ -1,742 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Next Generation Apparel — Ready-to-Wear</title>
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>EOS Clothing Co.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
- :root{
- --paper:#F6F4EF; --paper-2:#EFEBE3;
- --ink:#1A1815; --ink-soft:#4A463F;
- --line:#D9D3C7; --oxblood:#7A2E33; --stone:#B6AE9F;
- --shadow:rgba(26,24,21,.12);
- --display:"Bodoni Moda", Georgia, serif;
- --grot:"Hanken Grotesk", system-ui, sans-serif;
- }
- *{box-sizing:border-box;margin:0;padding:0}
- html{scroll-behavior:smooth}
- body{background:var(--paper);color:var(--ink);font-family:var(--grot);
- -webkit-font-smoothing:antialiased;line-height:1.5;overflow-x:hidden}
- ::selection{background:var(--oxblood);color:var(--paper)}
- a{color:inherit;text-decoration:none}
- button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
- .eyebrow{font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
+:root{
+  --bg:#fff;--bg2:#f7f7f7;--ink:#1a1a1a;--ink2:#555;--ink3:#888;--ink4:#bbb;
+  --border:#e5e5e5;--accent:#2d5a27;--accent-hover:#1e3d1a;--sale:#c0392b;
+  --sans:"Inter",system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{display:block;max-width:100%}
 
- .announce{background:var(--ink);color:var(--paper);text-align:center;font-size:.66rem;
- letter-spacing:.22em;text-transform:uppercase;padding:9px 16px;font-weight:500}
+.topbar{background:var(--ink);color:#fff;text-align:center;padding:10px 16px;font-size:.72rem;font-weight:600;letter-spacing:.04em}
+.topbar a{color:#fff;text-decoration:underline;margin:0 12px}
 
- header{position:sticky;top:0;z-index:60;background:rgba(246,244,239,.86);
- backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
- .nav{max-width:1340px;margin:0 auto;padding:0 28px;height:68px;
- display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px}
- .nav-left{display:flex;gap:26px}
- .nav-link{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
- position:relative;padding:4px 0;color:var(--ink-soft);transition:color .2s}
- .nav-link::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
- background:var(--ink);transition:width .25s ease}
- .nav-link:hover{color:var(--ink)}
- .nav-link:hover::after,.nav-link.is-active::after{width:100%}
- .nav-link.is-active{color:var(--ink)}
- .wordmark{font-family:var(--display);text-align:center;white-space:nowrap;
- font-size:1.5rem;font-weight:500;letter-spacing:.02em;line-height:1}
- .wordmark small{display:block;font-family:var(--grot);font-size:.5rem;letter-spacing:.42em;
- text-transform:uppercase;font-weight:600;color:var(--ink-soft);margin-top:5px;padding-left:.42em}
- .nav-right{display:flex;justify-content:flex-end;align-items:center;gap:20px}
- .icon-btn{display:flex;align-items:center;gap:7px;font-size:.72rem;letter-spacing:.14em;
- text-transform:uppercase;font-weight:600;color:var(--ink-soft);transition:color .2s}
- .icon-btn:hover{color:var(--ink)}
- .bag-btn{position:relative}
- .bag-count{position:absolute;top:-9px;right:-12px;background:var(--oxblood);color:var(--paper);
- font-size:.58rem;font-weight:700;min-width:17px;height:17px;border-radius:9px;display:flex;
- align-items:center;justify-content:center;padding:0 4px;transform:scale(0);
- transition:transform .25s cubic-bezier(.34,1.56,.64,1);letter-spacing:0}
- .bag-count.show{transform:scale(1)}
+header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--border)}
+.header-main{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
+.logo{font-weight:900;font-size:1.1rem;letter-spacing:-.02em;text-transform:uppercase}
+.header-nav{display:flex;gap:4px}
+.header-nav a{font-size:.82rem;font-weight:700;padding:8px 16px;text-transform:uppercase;letter-spacing:.03em;border-bottom:3px solid transparent;transition:.15s}
+.header-nav a:hover,.header-nav a.active{border-bottom-color:var(--ink)}
+.header-right{display:flex;align-items:center;gap:16px}
+.header-right button{position:relative}
+.header-right svg{width:20px;height:20px}
+.cart-badge{position:absolute;top:-6px;right:-8px;background:var(--sale);color:#fff;font-size:.58rem;font-weight:800;
+  min-width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  transform:scale(0);transition:transform .2s cubic-bezier(.34,1.56,.64,1)}
+.cart-badge.show{transform:scale(1)}
 
- .hero{max-width:1340px;margin:0 auto;padding:64px 28px 30px;
- display:grid;grid-template-columns:1.04fr .96fr;gap:48px;align-items:center}
- .hero-eyebrow{margin-bottom:26px}
- .hero h1{font-family:var(--display);font-weight:400;font-size:clamp(2.9rem,6.4vw,5.6rem);
- line-height:.96;letter-spacing:-.01em;margin-bottom:26px}
- .hero h1 em{font-style:italic}
- .hero p.lede{max-width:38ch;font-size:1.02rem;color:var(--ink-soft);margin-bottom:34px}
- .hero-cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
- .btn{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;letter-spacing:.16em;
- text-transform:uppercase;font-weight:600;padding:15px 28px;transition:.22s ease}
- .btn-solid{background:var(--ink);color:var(--paper)}
- .btn-solid:hover{background:var(--oxblood)}
- .btn-ghost{border:1px solid var(--ink);color:var(--ink)}
- .btn-ghost:hover{background:var(--ink);color:var(--paper)}
- .hero-visual{display:flex;gap:14px;height:clamp(340px,46vw,520px)}
- .look{flex:1;border:1px solid var(--line);overflow:hidden;position:relative;
- display:flex;align-items:center;justify-content:center;
- background:radial-gradient(120% 80% at 50% 16%,#FFFFFF,#E9E4DB)}
- .look:nth-child(2){margin-top:34px}
- .look:nth-child(3){margin-top:14px}
- .look .garment{width:62%;height:62%}
- .look .tag{position:absolute;bottom:14px;left:14px;font-size:.6rem;letter-spacing:.2em;
- text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
+.hero-banner{position:relative;width:100%;height:480px;overflow:hidden;background:#e8e4de}
+.hero-banner img{width:100%;height:100%;object-fit:cover}
+.hero-overlay{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.25);color:#fff;text-align:center;padding:24px}
+.hero-overlay h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1;margin-bottom:8px}
+.hero-overlay p{font-size:1rem;font-weight:500;margin-bottom:24px;opacity:.9}
+.hero-btns{display:flex;gap:12px}
+.hero-btn{padding:14px 32px;font-size:.82rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;transition:.2s}
+.hero-btn-w{background:#fff;color:var(--ink)}.hero-btn-w:hover{background:var(--accent);color:#fff}
+.hero-btn-o{border:2px solid #fff;color:#fff}.hero-btn-o:hover{background:#fff;color:var(--ink)}
 
- .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
- .reveal.in{opacity:1;transform:none}
- .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}
- .reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+.promo-bar{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:14px 24px;display:flex;justify-content:center;gap:40px;flex-wrap:wrap}
+.promo-bar span{font-size:.72rem;font-weight:600;color:var(--ink2);display:flex;align-items:center;gap:6px}
+.promo-bar span::before{content:"✓";color:var(--accent);font-weight:800}
 
- .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;margin-top:36px}
- .strip-track{display:flex;white-space:nowrap;animation:slide 38s linear infinite}
- .strip-track span{font-family:var(--display);font-size:1.5rem;font-style:italic;padding:14px 38px;
- color:var(--ink-soft);display:flex;align-items:center;gap:38px}
- .strip-track span::after{content:"·";color:var(--stone);font-style:normal}
- @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.shop{max-width:1400px;margin:0 auto;padding:32px 24px 64px}
+.shop-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;margin-bottom:24px}
+.shop-header h2{font-size:1.4rem;font-weight:800;text-transform:uppercase;letter-spacing:-.01em}
+.shop-count{font-size:.82rem;color:var(--ink3);font-weight:500}
 
- .shop{max-width:1340px;margin:0 auto;padding:64px 28px 40px}
- .shop-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px;margin-bottom:30px}
- .shop-head h2{font-family:var(--display);font-weight:400;font-size:2.3rem;line-height:1}
- .shop-head .count{font-size:.78rem;color:var(--ink-soft);letter-spacing:.04em;margin-top:8px}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;
+  padding:12px 0;margin-bottom:24px;border-bottom:1px solid var(--border);
+  position:sticky;top:56px;z-index:40;background:#fff}
+.filters{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:.72rem;font-weight:600;padding:8px 18px;border:1.5px solid var(--border);
+  color:var(--ink2);transition:.15s;text-transform:uppercase;letter-spacing:.04em}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.sort-wrap{display:flex;align-items:center;gap:8px}
+.sort-wrap label{font-size:.72rem;font-weight:600;color:var(--ink3);text-transform:uppercase}
+.sort-wrap select{font-family:inherit;font-size:.76rem;font-weight:600;padding:8px 28px 8px 10px;
+  border:1.5px solid var(--border);background:#fff;color:var(--ink);cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231a1a1a' fill='none' stroke-width='1.3'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 10px center}
 
- .controls{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
- border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:14px 0;margin-bottom:38px;
- position:sticky;top:68px;z-index:40;background:var(--paper)}
- .filters{display:flex;gap:8px;flex-wrap:wrap}
- .chip{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:9px 16px;
- border:1px solid var(--line);color:var(--ink-soft);border-radius:40px;transition:.18s}
- .chip:hover{border-color:var(--ink);color:var(--ink)}
- .chip.is-active{background:var(--ink);border-color:var(--ink);color:var(--paper)}
- .sort{display:flex;align-items:center;gap:10px}
- .sort label{font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
- .sort select{font-family:inherit;font-size:.72rem;font-weight:600;letter-spacing:.06em;padding:8px 28px 8px 12px;
- border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:0;cursor:pointer;appearance:none;
- background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%231A1815' fill='none' stroke-width='1.3'/%3E%3C/svg%3E");
- background-repeat:no-repeat;background-position:right 11px center}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.card{opacity:0;transform:translateY(12px);transition:opacity .4s,transform .4s}
+.card.shown{opacity:1;transform:none}
+.card-img{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;background:var(--bg2)}
+.card-img img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
+.card:hover .card-img img{transform:scale(1.04)}
+.sale-tag{position:absolute;top:0;left:0;background:var(--sale);color:#fff;
+  font-size:.64rem;font-weight:800;padding:4px 10px;text-transform:uppercase;letter-spacing:.04em}
+.quick-add{position:absolute;left:8px;right:8px;bottom:8px;background:rgba(255,255,255,.95);color:var(--ink);
+  font-size:.72rem;font-weight:700;padding:10px;text-align:center;text-transform:uppercase;letter-spacing:.04em;
+  opacity:0;transform:translateY(4px);transition:.2s;backdrop-filter:blur(4px)}
+.card:hover .quick-add{opacity:1;transform:none}
+.quick-add:hover{background:var(--ink);color:#fff}
+.card-body{padding:10px 0}
+.card-name{font-size:.82rem;font-weight:600;margin-bottom:2px;line-height:1.3}
+.card-tag{font-size:.72rem;color:var(--ink3);margin-bottom:4px}
+.card-price{font-size:.82rem;font-weight:700;display:flex;gap:8px;align-items:baseline}
+.card-price .was{color:var(--ink4);text-decoration:line-through;font-weight:400;font-size:.76rem}
+.card-price .now.sale{color:var(--sale)}
+.empty-msg{grid-column:1/-1;text-align:center;padding:60px 0;color:var(--ink3);font-size:1rem}
 
- .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px}
- .card{display:flex;flex-direction:column;opacity:0;transform:translateY(14px);
- transition:opacity .5s ease,transform .5s ease}
- .card.shown{opacity:1;transform:none}
- .swatch{position:relative;aspect-ratio:3/4;border:1px solid var(--line);overflow:hidden;
- display:flex;align-items:center;justify-content:center;cursor:pointer;
- background:radial-gradient(120% 85% at 50% 16%,#FFFFFF,#ECE7DE)}
- .swatch .garment{width:74%;height:74%;transition:transform .5s cubic-bezier(.2,.7,.2,1)}
- .swatch .ph{position:absolute;inset:0}
- .swatch img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
- .swatch img.photo.hover{opacity:0;transition:opacity .55s ease}
- .card:hover img.photo.hover{opacity:1}
- .card:hover .garment{transform:scale(1.04)}
- .fabric{fill:var(--fabric,#cfc8ba);transition:fill .3s ease}
- .gd{fill:none;stroke:rgba(0,0,0,.24);stroke-width:.8;stroke-linecap:round;stroke-linejoin:round}
- .gd .btn{fill:rgba(0,0,0,.32);stroke:none}
- .sale-flag{position:absolute;top:12px;left:12px;background:var(--oxblood);color:var(--paper);
- font-size:.56rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;padding:5px 9px;z-index:2}
- .quick{position:absolute;left:12px;right:12px;bottom:12px;background:var(--ink);color:var(--paper);
- font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:12px;text-align:center;
- opacity:0;transform:translateY(8px);transition:.25s ease;z-index:2}
- .card:hover .quick{opacity:1;transform:none}
- .quick:hover{background:var(--oxblood)}
- .card-meta{padding:14px 2px 0}
- .card-cat{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);font-weight:600;margin-bottom:6px}
- .card-name{font-family:var(--display);font-size:1.02rem;font-weight:500;line-height:1.2;margin-bottom:8px}
- .swatches{display:flex;gap:7px;margin-bottom:9px}
- .dot{width:15px;height:15px;border-radius:50%;border:1px solid rgba(0,0,0,.18);cursor:pointer;
- position:relative;transition:transform .15s}
- .dot:hover{transform:scale(1.15)}
- .dot.active{box-shadow:0 0 0 1.5px var(--paper),0 0 0 3px var(--ink)}
- .card-color{font-size:.68rem;color:var(--ink-soft);margin-bottom:7px;letter-spacing:.02em}
- .card-price{font-size:.84rem;font-weight:600;letter-spacing:.02em;display:flex;gap:9px;align-items:baseline}
- .card-price .was{color:var(--stone);text-decoration:line-through;font-weight:400;font-size:.76rem}
- .card-price .now.sale{color:var(--oxblood)}
- .empty{grid-column:1/-1;text-align:center;padding:80px 0;color:var(--ink-soft)}
- .empty p{font-family:var(--display);font-size:1.4rem;font-style:italic}
+footer{background:var(--bg2);border-top:1px solid var(--border)}
+.foot-promo{display:flex;justify-content:center;gap:48px;padding:32px 24px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.foot-promo-item{text-align:center;max-width:200px}
+.foot-promo-item strong{display:block;font-size:.78rem;font-weight:700;margin-bottom:2px}
+.foot-promo-item span{font-size:.7rem;color:var(--ink3)}
+.foot-grid{max-width:1400px;margin:0 auto;padding:40px 24px;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.foot-col h4{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}
+.foot-col a{display:block;font-size:.78rem;color:var(--ink2);padding:3px 0;transition:color .15s}
+.foot-col a:hover{color:var(--ink)}
+.foot-base{border-top:1px solid var(--border);text-align:center;padding:20px;font-size:.68rem;color:var(--ink4)}
 
- .editorial{background:var(--ink);color:var(--paper);margin-top:30px}
- .editorial-in{max-width:1340px;margin:0 auto;padding:84px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:48px}
- .editorial h3{font-family:var(--display);font-size:1.5rem;font-weight:400;margin-bottom:14px}
- .editorial .num{font-family:var(--display);font-style:italic;font-size:.9rem;color:var(--stone);margin-bottom:18px;display:block}
- .editorial p{font-size:.92rem;color:#C9C3B8;line-height:1.65}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);opacity:0;visibility:hidden;transition:.3s;z-index:90}
+.overlay.open{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:#fff;z-index:100;
+  display:flex;flex-direction:column;transform:translateX(100%);
+  transition:transform .3s cubic-bezier(.2,.7,.2,1);box-shadow:-8px 0 32px rgba(0,0,0,.1)}
+.drawer.open{transform:none}
+.drawer-head{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;border-bottom:1px solid var(--border)}
+.drawer-head h3{font-size:.88rem;font-weight:800;text-transform:uppercase}
+.drawer-close{width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:var(--ink2)}
+.drawer-close:hover{color:var(--sale)}
+.ship-bar{padding:12px 24px;border-bottom:1px solid var(--border);font-size:.72rem;color:var(--ink2);font-weight:500}
+.ship-track{height:3px;background:var(--border);margin-top:8px;overflow:hidden}
+.ship-fill{height:100%;background:var(--accent);width:0;transition:width .4s}
+.drawer-body{flex:1;overflow-y:auto;padding:8px 24px}
+.cart-empty{text-align:center;padding:60px 10px;color:var(--ink3)}
+.cart-empty p{font-size:.92rem;font-weight:600;margin-bottom:4px}
+.ci{display:flex;gap:12px;padding:16px 0;border-bottom:1px solid var(--border)}
+.ci-thumb{width:64px;height:85px;flex-shrink:0;overflow:hidden;background:var(--bg2)}
+.ci-thumb img{width:100%;height:100%;object-fit:cover}
+.ci-info{flex:1;min-width:0}
+.ci-name{font-size:.82rem;font-weight:600;line-height:1.2}
+.ci-detail{font-size:.68rem;color:var(--ink3);margin:3px 0 8px}
+.ci-bottom{display:flex;justify-content:space-between;align-items:center}
+.qty{display:flex;align-items:center;border:1.5px solid var(--border)}
+.qty button{width:28px;height:28px;font-size:.88rem;color:var(--ink2)}
+.qty button:hover{color:var(--sale)}
+.qty span{width:24px;text-align:center;font-size:.76rem;font-weight:700}
+.ci-price{font-size:.82rem;font-weight:700}
+.drawer-foot{padding:20px 24px;border-top:1px solid var(--border)}
+.subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.subtotal .lab{font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--ink2)}
+.subtotal .val{font-size:1.2rem;font-weight:800}
+.drawer-foot .note{font-size:.68rem;color:var(--ink3);margin-bottom:14px}
+.checkout-btn{width:100%;background:var(--accent);color:#fff;padding:14px;font-size:.78rem;
+  font-weight:700;text-transform:uppercase;letter-spacing:.06em;transition:background .2s}
+.checkout-btn:hover{background:var(--accent-hover)}
 
- footer{background:var(--paper-2);border-top:1px solid var(--line)}
- .foot-news{max-width:1340px;margin:0 auto;padding:64px 28px;border-bottom:1px solid var(--line);text-align:center}
- .foot-news h3{font-family:var(--display);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:400;margin-bottom:14px}
- .foot-news p{color:var(--ink-soft);margin-bottom:26px}
- .news-form{display:flex;max-width:440px;margin:0 auto;border:1px solid var(--ink)}
- .news-form input{flex:1;border:none;background:transparent;padding:14px 16px;font-family:inherit;font-size:.86rem;color:var(--ink);outline:none}
- .news-form input::placeholder{color:var(--stone)}
- .news-form button{background:var(--ink);color:var(--paper);padding:0 22px;font-size:.68rem;letter-spacing:.16em;
- text-transform:uppercase;font-weight:600;transition:background .2s}
- .news-form button:hover{background:var(--oxblood)}
- .foot-grid{max-width:1340px;margin:0 auto;padding:54px 28px;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px}
- .foot-brand .wordmark{text-align:left;font-size:1.7rem}
- .foot-brand p{color:var(--ink-soft);font-size:.86rem;max-width:30ch;margin-top:16px}
- .foot-col h4{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;margin-bottom:16px;color:var(--ink)}
- .foot-col a{display:block;font-size:.86rem;color:var(--ink-soft);padding:5px 0;transition:color .18s}
- .foot-col a:hover{color:var(--ink)}
- .foot-base{border-top:1px solid var(--line);text-align:center;padding:22px;font-size:.7rem;letter-spacing:.08em;color:var(--stone)}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,120%);background:var(--ink);color:#fff;
+  padding:12px 20px;z-index:120;font-size:.76rem;font-weight:600;transition:transform .35s cubic-bezier(.2,.7,.2,1);
+  max-width:90vw;box-shadow:0 4px 20px rgba(0,0,0,.2)}
+.toast.show{transform:translate(-50%,0)}
 
- .overlay{position:fixed;inset:0;background:rgba(26,24,21,.42);backdrop-filter:blur(2px);opacity:0;visibility:hidden;transition:.3s;z-index:90}
- .overlay.open{opacity:1;visibility:visible}
- .drawer{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--paper);z-index:100;
- display:flex;flex-direction:column;transform:translateX(100%);
- transition:transform .38s cubic-bezier(.2,.7,.2,1);box-shadow:-20px 0 60px var(--shadow)}
- .drawer.open{transform:none}
- .drawer-head{display:flex;justify-content:space-between;align-items:center;padding:24px;border-bottom:1px solid var(--line)}
- .drawer-head h3{font-family:var(--display);font-size:1.3rem;font-weight:500}
- .drawer-close{font-size:1.4rem;line-height:1;color:var(--ink-soft);transition:color .2s}
- .drawer-close:hover{color:var(--oxblood)}
- .ship-bar{padding:16px 24px;border-bottom:1px solid var(--line);font-size:.74rem;color:var(--ink-soft)}
- .ship-track{height:3px;background:var(--line);margin-top:10px;position:relative;overflow:hidden}
- .ship-fill{position:absolute;left:0;top:0;height:100%;background:var(--oxblood);width:0;transition:width .4s ease}
- .drawer-body{flex:1;overflow-y:auto;padding:8px 24px}
- .cart-empty{text-align:center;padding:70px 10px;color:var(--ink-soft)}
- .cart-empty p{font-family:var(--display);font-style:italic;font-size:1.2rem;margin-bottom:6px}
- .ci{display:flex;gap:14px;padding:18px 0;border-bottom:1px solid var(--line)}
- .ci-thumb{position:relative;width:64px;height:80px;border:1px solid var(--line);flex-shrink:0;display:flex;align-items:center;justify-content:center;
- background:radial-gradient(120% 85% at 50% 18%,#FFFFFF,#ECE7DE);overflow:hidden}
- .ci-thumb .garment{width:74%;height:74%}
- .ci-thumb .ph{position:absolute;inset:0}
- .ci-thumb img{width:100%;height:100%;object-fit:cover}
- .ci-info{flex:1;min-width:0}
- .ci-name{font-family:var(--display);font-size:.96rem;font-weight:500;line-height:1.2}
- .ci-cat{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);font-weight:600;margin:5px 0 9px}
- .ci-bottom{display:flex;justify-content:space-between;align-items:center}
- .qty{display:flex;align-items:center;border:1px solid var(--line)}
- .qty button{width:26px;height:26px;font-size:.95rem;color:var(--ink-soft);transition:color .15s}
- .qty button:hover{color:var(--oxblood)}
- .qty span{width:26px;text-align:center;font-size:.78rem;font-weight:600}
- .ci-price{font-size:.82rem;font-weight:600}
- .drawer-foot{padding:22px 24px;border-top:1px solid var(--line)}
- .subtotal{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px}
- .subtotal .lab{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;color:var(--ink-soft)}
- .subtotal .val{font-family:var(--display);font-size:1.5rem;font-weight:500}
- .drawer-foot .note{font-size:.7rem;color:var(--stone);margin-bottom:16px}
- .checkout{width:100%;background:var(--ink);color:var(--paper);padding:16px;font-size:.72rem;letter-spacing:.16em;
- text-transform:uppercase;font-weight:600;transition:background .2s}
- .checkout:hover{background:var(--oxblood)}
-
- .toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,140%);background:var(--ink);color:var(--paper);
- padding:14px 24px;z-index:120;font-size:.74rem;letter-spacing:.08em;display:flex;align-items:center;gap:12px;
- transition:transform .4s cubic-bezier(.2,.7,.2,1);max-width:90vw}
- .toast.show{transform:translate(-50%,0)}
- .toast .dot2{width:6px;height:6px;border-radius:50%;background:var(--oxblood)}
-
- @media(max-width:1080px){
- .grid{grid-template-columns:repeat(3,1fr)}
- .hero{grid-template-columns:1fr;gap:40px}.hero-visual{height:360px}
- .foot-grid{grid-template-columns:1fr 1fr}
- .editorial-in{grid-template-columns:1fr;gap:36px;padding:60px 28px}
- }
- @media(max-width:720px){
- .nav{grid-template-columns:auto 1fr auto;padding:0 18px}
- .nav-left{display:none}.wordmark{text-align:left;font-size:1.25rem}
- .nav-right{gap:14px}.icon-btn span.lab{display:none}
- .hero{padding:44px 18px 24px}
- .grid{grid-template-columns:repeat(2,1fr);gap:20px 14px}
- .shop{padding:48px 18px}.controls{top:68px}
- .hero-visual .look:nth-child(3){display:none}
- .foot-grid{grid-template-columns:1fr 1fr}.editorial-in{padding:48px 18px}
- }
- @media(max-width:440px){.grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}}
- @media(prefers-reduced-motion:reduce){
- *{animation:none!important;transition-duration:.01ms!important}
- .reveal{opacity:1;transform:none}.card{opacity:1;transform:none}
- }
+@media(max-width:1080px){.grid{grid-template-columns:repeat(3,1fr)}.foot-grid{grid-template-columns:1fr 1fr}.hero-banner{height:380px}}
+@media(max-width:720px){.header-nav{display:none}.hero-banner{height:300px}.grid{grid-template-columns:repeat(2,1fr);gap:12px}.shop{padding:24px 16px 48px}.toolbar{top:56px}.foot-promo{gap:24px}}
+@media(max-width:440px){.grid{grid-template-columns:1fr}.foot-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<!-- shared lighting gradients used by every garment render -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
- <defs>
- <linearGradient id="ngaShade" x1="0" y1="0" x2="1" y2="1">
- <stop offset="0.34" stop-color="#000" stop-opacity="0"/>
- <stop offset="1" stop-color="#000" stop-opacity="0.30"/>
- </linearGradient>
- <linearGradient id="ngaLight" x1="0" y1="0" x2="0" y2="1">
- <stop offset="0" stop-color="#fff" stop-opacity="0.42"/>
- <stop offset="0.30" stop-color="#fff" stop-opacity="0"/>
- </linearGradient>
- </defs>
-</svg>
-
-<div class="announce">Complimentary shipping over $200 — 30-day returns on every order</div>
+<div class="topbar">
+  New arrivals just landed!
+  <a href="#shop" data-nav="Women">Shop Women</a>
+  <a href="#shop" data-nav="Men">Shop Men</a>
+</div>
 
 <header>
- <nav class="nav">
- <div class="nav-left">
- <a class="nav-link" data-nav="all" href="#shop">Collection</a>
- <a class="nav-link" data-nav="Women" href="#shop">Women</a>
- <a class="nav-link" data-nav="Men" href="#shop">Men</a>
- </div>
- <a class="wordmark" href="#top">Next Generation<small>Apparel</small></a>
- <div class="nav-right">
- <button class="icon-btn" id="searchBtn" aria-label="Search">
- <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg>
- <span class="lab">Search</span>
- </button>
- <button class="icon-btn bag-btn" id="bagBtn" aria-label="Open bag">
- <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 4.5h10l-.8 9.5H3.8L3 4.5z"/><path d="M5.5 4.5a2.5 2.5 0 015 0"/></svg>
- <span class="lab">Bag</span>
- <span class="bag-count" id="bagCount">0</span>
- </button>
- </div>
- </nav>
+  <div class="header-main">
+    <a class="logo" href="#top">EOS Clothing Co.</a>
+    <nav class="header-nav">
+      <a href="#shop" data-nav="Women">Women</a>
+      <a href="#shop" data-nav="Men">Men</a>
+      <a href="#shop">Sale</a>
+    </nav>
+    <div class="header-right">
+      <button id="searchBtn" aria-label="Search">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>
+      </button>
+      <button id="bagBtn" aria-label="Cart">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5.5h12l-1 12H5L4 5.5z"/><path d="M7 5.5a3 3 0 016 0"/></svg>
+        <span class="cart-badge" id="bagCount">0</span>
+      </button>
+    </div>
+  </div>
 </header>
 
 <main id="top">
- <section class="hero">
- <div>
- <div class="eyebrow hero-eyebrow reveal in">Autumn Collection — 40 Pieces</div>
- <h1 class="reveal in d1">Dressed for<br><em>what's next.</em></h1>
- <p class="lede reveal in d2">Considered ready-to-wear in natural fibers and a disciplined palette. Made to be worn, washed, and worn again — not replaced.</p>
- <div class="hero-cta reveal in d3">
- <a href="#shop" class="btn btn-solid">Shop the collection</a>
- <a href="#shop" class="btn btn-ghost" data-nav="Women">Women</a>
- <a href="#shop" class="btn btn-ghost" data-nav="Men">Men</a>
- </div>
- </div>
- <div class="hero-visual">
- <div class="look reveal in d2" style="--fabric:#B68A5B" data-sil="coat"><span class="tag">The Topcoat</span></div>
- <div class="look reveal in d3" style="--fabric:#3A3A38" data-sil="knit"><span class="tag">The Crew</span></div>
- <div class="look reveal in d4" style="--fabric:#2C3340" data-sil="trouser"><span class="tag">The Trouser</span></div>
- </div>
- </section>
 
- <div class="strip"><div class="strip-track" id="strip"></div></div>
+<div class="hero-banner">
+  <img src="images/hero-banner.jpg" alt="EOS Clothing Co. Fall Collection">
+  <div class="hero-overlay">
+    <h1>Fall New Arrivals</h1>
+    <p>40+ new styles — quality you can feel, prices you'll love</p>
+    <div class="hero-btns">
+      <a class="hero-btn hero-btn-w" href="#shop" data-nav="Women">Shop Women</a>
+      <a class="hero-btn hero-btn-o" href="#shop" data-nav="Men">Shop Men</a>
+    </div>
+  </div>
+</div>
 
- <section class="shop" id="shop">
- <div class="shop-head">
- <div>
- <div class="eyebrow" style="margin-bottom:12px">Ready-to-Wear</div>
- <h2 id="shopTitle">The Collection</h2>
- <div class="count" id="shopCount"></div>
- </div>
- </div>
+<div class="promo-bar">
+  <span>Free shipping over $300</span>
+  <span>Easy 30-day returns</span>
+  <span>Ships in 48 hours</span>
+  <span>Quality guaranteed</span>
+</div>
 
- <div class="controls">
- <div class="filters" id="filters">
- <button class="chip is-active" data-filter="gender" data-value="all">All</button>
- <button class="chip" data-filter="gender" data-value="Women">Women</button>
- <button class="chip" data-filter="gender" data-value="Men">Men</button>
- <span style="width:1px;background:var(--line);margin:0 4px"></span>
- <button class="chip is-active" data-filter="type" data-value="all">Everything</button>
- <button class="chip" data-filter="type" data-value="Tops">Tops</button>
- <button class="chip" data-filter="type" data-value="Bottoms">Bottoms</button>
- </div>
- <div class="sort">
- <label for="sortSel">Sort</label>
- <select id="sortSel">
- <option value="featured">Featured</option>
- <option value="low">Price: Low to High</option>
- <option value="high">Price: High to Low</option>
- <option value="name">Alphabetical</option>
- </select>
- </div>
- </div>
+<section class="shop" id="shop">
+  <div class="shop-header">
+    <div>
+      <h2 id="shopTitle">All Styles</h2>
+      <div class="shop-count" id="shopCount"></div>
+    </div>
+  </div>
+  <div class="toolbar">
+    <div class="filters" id="filters">
+      <button class="chip on" data-filter="gender" data-value="all">All</button>
+      <button class="chip" data-filter="gender" data-value="Women">Women</button>
+      <button class="chip" data-filter="gender" data-value="Men">Men</button>
+      <button class="chip on" data-filter="type" data-value="all">Everything</button>
+      <button class="chip" data-filter="type" data-value="Tops">Tops</button>
+      <button class="chip" data-filter="type" data-value="Bottoms">Bottoms</button>
+    </div>
+    <div class="sort-wrap">
+      <label for="sortSel">Sort</label>
+      <select id="sortSel">
+        <option value="featured">Featured</option>
+        <option value="low">Price: Low → High</option>
+        <option value="high">Price: High → Low</option>
+        <option value="name">A → Z</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid" id="grid"></div>
+</section>
 
- <div class="grid" id="grid"></div>
- </section>
-
- <section class="editorial">
- <div class="editorial-in">
- <div class="reveal"><span class="num">01</span><h3>Natural fibers, only</h3>
- <p>Cotton, linen, merino, and cashmere chosen for how they age. Nothing engineered to look good once and fall apart by spring.</p></div>
- <div class="reveal d1"><span class="num">02</span><h3>A closed palette</h3>
- <p>Bone, ink, clay, and stone. Every piece is cut to live beside the last, so a small wardrobe goes further than a large one.</p></div>
- <div class="reveal d2"><span class="num">03</span><h3>Made to be kept</h3>
- <p>Reinforced seams, full-canvas tailoring, and repairs offered for life. Buy once, return rarely, replace almost never.</p></div>
- </div>
- </section>
 </main>
 
 <footer>
- <div class="foot-news">
- <h3>Join the next generation</h3>
- <p>Early access to new arrivals, restocks, and private sales.</p>
- <div class="news-form">
- <input type="email" id="newsEmail" placeholder="Email address" aria-label="Email address" />
- <button id="newsBtn">Subscribe</button>
- </div>
- </div>
- <div class="foot-grid">
- <div class="foot-brand"><span class="wordmark">Next Generation<small>Apparel</small></span>
- <p>Considered ready-to-wear, designed in studio and made to last.</p></div>
- <div class="foot-col"><h4>Shop</h4>
- <a href="#shop" data-nav="Women">Women</a><a href="#shop" data-nav="Men">Men</a>
- <a href="#shop">New Arrivals</a><a href="#shop">The Sale</a></div>
- <div class="foot-col"><h4>Service</h4>
- <a href="#">Shipping</a><a href="#">Returns</a><a href="#">Size Guide</a><a href="#">Repairs for Life</a></div>
- <div class="foot-col"><h4>House</h4>
- <a href="#">Our Materials</a><a href="#">Sustainability</a><a href="#">Stockists</a><a href="#">Contact</a></div>
- </div>
- <div class="foot-base">© 2025 Next Generation Apparel — A demonstration storefront.</div>
+  <div class="foot-promo">
+    <div class="foot-promo-item"><strong>Free Shipping</strong><span>On orders over $300</span></div>
+    <div class="foot-promo-item"><strong>Easy Returns</strong><span>30-day hassle-free</span></div>
+    <div class="foot-promo-item"><strong>Quality First</strong><span>Premium fabrics only</span></div>
+  </div>
+  <div class="foot-grid">
+    <div class="foot-col"><h4>Shop</h4>
+      <a href="#shop" data-nav="Women">Women</a><a href="#shop" data-nav="Men">Men</a>
+      <a href="#shop">New Arrivals</a><a href="#shop">Sale</a></div>
+    <div class="foot-col"><h4>Help</h4>
+      <a href="#">Shipping Info</a><a href="#">Returns</a><a href="#">Size Guide</a><a href="#">FAQ</a></div>
+    <div class="foot-col"><h4>Company</h4>
+      <a href="#">About Us</a><a href="#">Sustainability</a><a href="#">Careers</a><a href="#">Contact</a></div>
+    <div class="foot-col"><h4>Connect</h4>
+      <a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Twitter</a><a href="#">Email Signup</a></div>
+  </div>
+  <div class="foot-base">© 2025 EOS Clothing Co. — All rights reserved.</div>
 </footer>
 
 <div class="overlay" id="overlay"></div>
-<aside class="drawer" id="drawer" aria-label="Shopping bag">
- <div class="drawer-head"><h3>Your Bag</h3><button class="drawer-close" id="drawerClose" aria-label="Close">&times;</button></div>
- <div class="ship-bar" id="shipBar"><span id="shipMsg"></span><div class="ship-track"><div class="ship-fill" id="shipFill"></div></div></div>
- <div class="drawer-body" id="drawerBody"></div>
- <div class="drawer-foot" id="drawerFoot" style="display:none">
- <div class="subtotal"><span class="lab">Subtotal</span><span class="val" id="subtotal">$0.00</span></div>
- <p class="note">Shipping and taxes calculated at checkout.</p>
- <button class="checkout" id="checkoutBtn">Proceed to checkout</button>
- </div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><h3>Your Cart</h3><button class="drawer-close" id="drawerClose">&times;</button></div>
+  <div class="ship-bar" id="shipBar"><span id="shipMsg"></span><div class="ship-track"><div class="ship-fill" id="shipFill"></div></div></div>
+  <div class="drawer-body" id="drawerBody"></div>
+  <div class="drawer-foot" id="drawerFoot" style="display:none">
+    <div class="subtotal"><span class="lab">Subtotal</span><span class="val" id="subtotal">$0</span></div>
+    <p class="note">Shipping & taxes calculated at checkout</p>
+    <button class="checkout-btn" id="checkoutBtn">Checkout</button>
+  </div>
 </aside>
-
-<div class="toast" id="toast"><span class="dot2"></span><span id="toastMsg"></span></div>
+<div class="toast" id="toast"><span id="toastMsg"></span></div>
 
 <script>
-/* =========================================================================
- GARMENT RENDERING
- ========================================================================= */
-const MAIN = {
- tee:'M28 16 L42 10 Q50 16 58 10 L72 16 L80 30 L68 38 L66 34 L66 86 Q50 90 34 86 L34 34 L32 38 L20 30 Z',
- shirt:'M30 14 L44 9 L50 16 L56 9 L70 14 L80 30 L70 38 L68 34 L68 88 Q50 91 32 88 L32 34 L30 38 L20 30 Z',
- knit:'M28 18 Q40 8 50 14 Q60 8 72 18 L82 32 L70 42 L68 38 L68 84 L32 84 L32 38 L30 42 L18 32 Z',
- coat:'M30 14 L46 9 L50 18 L54 9 L70 14 L82 32 L72 40 L70 36 L70 104 L30 104 L30 36 L28 40 L18 32 Z',
- cami:'M40 26 Q40 18 36 13 L40 12 Q45 19 47 26 L53 26 Q55 19 60 12 L64 13 Q60 18 60 26 L62 32 L58 92 Q50 95 42 92 L38 32 Z',
- trouser:'M34 12 L66 12 L68 30 L62 102 L52 102 L50 46 L48 102 L38 102 L32 30 Z',
- denim:'M34 12 L66 12 L68 30 L62 102 L52 102 L50 46 L48 102 L38 102 L32 30 Z',
- skirt:'M34 14 L66 14 L66 26 L78 98 Q50 106 22 98 L34 26 Z',
- short:'M34 14 L66 14 L68 26 L64 66 L54 66 L50 40 L46 66 L36 66 L32 26 Z'
-};
-const DETAIL = {
- tee:'<path d="M34 33 L40 39 M66 33 L60 39 M35 83 Q50 87 65 83"/>',
- shirt:'<path d="M44 9 L50 18 L56 9 M50 18 L50 88"/><circle class="btn" cx="50" cy="30" r="1.1"/><circle class="btn" cx="50" cy="44" r="1.1"/><circle class="btn" cx="50" cy="58" r="1.1"/><circle class="btn" cx="50" cy="72" r="1.1"/><circle class="btn" cx="50" cy="83" r="1.1"/>',
- knit:'<path d="M40 16 Q50 24 60 16 M32 80 L68 80 M21 34 L29 39 M79 34 L71 39 M34 81 L34 84 M66 81 L66 84"/>',
- coat:'<path d="M46 9 L50 30 L54 9 M50 30 L50 104 M39 70 L46 70 M54 70 L61 70"/><circle class="btn" cx="50" cy="44" r="1.2"/><circle class="btn" cx="50" cy="58" r="1.2"/><circle class="btn" cx="50" cy="72" r="1.2"/><circle class="btn" cx="50" cy="86" r="1.2"/>',
- cami:'<path d="M38 32 Q50 36 62 32 M50 32 L50 92"/>',
- trouser:'<path d="M34 18 L66 18 M45 24 L47 98 M55 24 L53 98"/>',
- denim:'<path d="M34 18 L66 18 M45 22 L43 98 M55 22 L57 98 M50 18 L50 44 M36 22 L44 22 L44 30 M64 22 L56 22 L56 30"/>',
- skirt:'<path d="M34 26 L66 26 M50 26 L50 100 M43 28 L40 96 M57 28 L60 96"/>',
- short:'<path d="M34 20 L66 20 M50 20 L50 40"/>'
-};
-function garmentSVG(sil){
- const m = MAIN[sil] || MAIN.tee, d = DETAIL[sil] || '';
- return `<svg class="garment" viewBox="0 0 100 114" preserveAspectRatio="xMidYMid meet">
- <path d="${m}" class="fabric"/>
- <path d="${m}" fill="url(#ngaShade)"/>
- <path d="${m}" fill="url(#ngaLight)"/>
- <g class="gd">${d}</g></svg>`;
-}
-function media(p, color){
- if(color.img){
- const hover = color.img2 ? `<img class="photo hover" src="${color.img2}" alt="" loading="lazy">` : '';
- return `<div class="ph"><img class="photo primary" src="${color.img}" alt="${p.name} in ${color.name}" loading="lazy">${hover}</div>`;
- }
- return garmentSVG(p.sil);
-}
-
-/* =========================================================================
- COLOUR PALETTES
- ========================================================================= */
-/* Per-product palettes with images for ALL colors */
-const PAL_PRODUCTS = {
- // Women - Tops
- 1: [{name:'White',hex:'#F1EFE9',img:'images/w-tee1.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-tee1-black.jpg'},{name:'Sand',hex:'#C9B79B',img:'images/w-tee1-sand.jpg'},{name:'Sage',hex:'#9AA587',img:'images/w-tee1-sage.jpg'}],
- 2: [{name:'Ivory',hex:'#ECE6D8',img:'images/w-tank.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-tank-black.jpg'},{name:'Blush',hex:'#D7B9B0',img:'images/w-tank-blush.jpg'},{name:'Slate',hex:'#7E8794',img:'images/w-tank-slate.jpg'}],
- 3: [{name:'White',hex:'#F1EFE9',img:'images/w-jersey.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-jersey-black.jpg'},{name:'Sand',hex:'#C9B79B',img:'images/w-jersey-sand.jpg'},{name:'Sage',hex:'#9AA587',img:'images/w-jersey-sage.jpg'}],
- 4: [{name:'Ivory',hex:'#ECE6D8',img:'images/w-cami.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-cami-black.jpg'},{name:'Blush',hex:'#D7B9B0',img:'images/w-cami-blush.jpg'},{name:'Slate',hex:'#7E8794',img:'images/w-cami-slate.jpg'}],
- 5: [{name:'White',hex:'#F1EFE9',img:'images/w-camp.jpg'},{name:'Sky',hex:'#AEC2CE',img:'images/w-camp-sky.jpg'},{name:'Stone',hex:'#BFB6A6',img:'images/w-camp-stone.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-camp-black.jpg'}],
- 6: [{name:'White',hex:'#F1EFE9',img:'images/w-poplin.jpg'},{name:'Sky',hex:'#AEC2CE',img:'images/w-poplin-sky.jpg'},{name:'Stone',hex:'#BFB6A6',img:'images/w-poplin-stone.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-poplin-black.jpg'}],
- 7: [{name:'Oatmeal',hex:'#D7CDB8',img:'images/w-merino.jpg'},{name:'Charcoal',hex:'#3A3A38',img:'images/w-merino-charcoal.jpg'},{name:'Camel',hex:'#B68A5B',img:'images/w-merino-camel.jpg'},{name:'Forest',hex:'#404F40',img:'images/w-merino-forest.jpg'}],
- 8: [{name:'Oatmeal',hex:'#D7CDB8',img:'images/w-cashmere.jpg'},{name:'Charcoal',hex:'#3A3A38',img:'images/w-cashmere-charcoal.jpg'},{name:'Camel',hex:'#B68A5B',img:'images/w-cashmere-camel.jpg'},{name:'Forest',hex:'#404F40',img:'images/w-cashmere-forest.jpg'}],
- 9: [{name:'Camel',hex:'#B68A5B',img:'images/w-boucle.jpg'},{name:'Charcoal',hex:'#3A3A38',img:'images/w-boucle-charcoal.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-boucle-black.jpg'},{name:'Stone',hex:'#B7AE9E',img:'images/w-boucle-stone.jpg'}],
- 10:[{name:'Camel',hex:'#B68A5B',img:'images/w-blazer.jpg'},{name:'Charcoal',hex:'#3A3A38',img:'images/w-blazer-charcoal.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-blazer-black.jpg'},{name:'Stone',hex:'#B7AE9E',img:'images/w-blazer-stone.jpg'}],
- // Women - Bottoms
- 11:[{name:'Stone',hex:'#BBB1A0',img:'images/w-short.jpg'},{name:'Black',hex:'#1C1A17',img:'images/w-short-black.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/w-short-olive.jpg'},{name:'Sand',hex:'#C9B79B',img:'images/w-short-sand.jpg'}],
- 12:[{name:'Black',hex:'#1C1A17',img:'images/w-lounge.jpg'},{name:'Stone',hex:'#BBB1A0',img:'images/w-lounge-stone.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/w-lounge-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/w-lounge-navy.jpg'}],
- 13:[{name:'Black',hex:'#1C1A17',img:'images/w-slip.jpg'},{name:'Cream',hex:'#E7DFCC',img:'images/w-slip-cream.jpg'},{name:'Burgundy',hex:'#5F2A30',img:'images/w-slip-burgundy.jpg'},{name:'Camel',hex:'#B68A5B',img:'images/w-slip-camel.jpg'}],
- 14:[{name:'Indigo',hex:'#3C4A63',img:'images/w-rawjean.jpg'},{name:'Mid Wash',hex:'#7E94AE',img:'images/w-rawjean-midwash.jpg'},{name:'Black',hex:'#23242A',img:'images/w-rawjean-black.jpg'},{name:'Ecru',hex:'#D7CDB8',img:'images/w-rawjean-ecru.jpg'}],
- 15:[{name:'Black',hex:'#1C1A17',img:'images/w-midi.jpg'},{name:'Cream',hex:'#E7DFCC',img:'images/w-midi-cream.jpg'},{name:'Burgundy',hex:'#5F2A30',img:'images/w-midi-burgundy.jpg'},{name:'Camel',hex:'#B68A5B',img:'images/w-midi-camel.jpg'}],
- 16:[{name:'Indigo',hex:'#3C4A63',img:'images/w-flare.jpg'},{name:'Mid Wash',hex:'#7E94AE',img:'images/w-flare-midwash.jpg'},{name:'Black',hex:'#23242A',img:'images/w-flare-black.jpg'},{name:'Ecru',hex:'#D7CDB8',img:'images/w-flare-ecru.jpg'}],
- 17:[{name:'Black',hex:'#1C1A17',img:'images/w-trouser.jpg'},{name:'Stone',hex:'#BBB1A0',img:'images/w-trouser-stone.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/w-trouser-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/w-trouser-navy.jpg'}],
- 18:[{name:'Black',hex:'#1C1A17',img:'images/w-wide.jpg'},{name:'Stone',hex:'#BBB1A0',img:'images/w-wide-stone.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/w-wide-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/w-wide-navy.jpg'}],
- 19:[{name:'Black',hex:'#1C1A17',img:'images/w-pleat-skirt.jpg'},{name:'Cream',hex:'#E7DFCC',img:'images/w-pleat-skirt-cream.jpg'},{name:'Burgundy',hex:'#5F2A30',img:'images/w-pleat-skirt-burgundy.jpg'},{name:'Camel',hex:'#B68A5B',img:'images/w-pleat-skirt-camel.jpg'}],
- 20:[{name:'Black',hex:'#1C1A17',img:'images/w-leather.jpg'},{name:'Cream',hex:'#E7DFCC',img:'images/w-leather-cream.jpg'},{name:'Burgundy',hex:'#5F2A30',img:'images/w-leather-burgundy.jpg'},{name:'Camel',hex:'#B68A5B',img:'images/w-leather-camel.jpg'}],
- // Men - Tops
- 21:[{name:'White',hex:'#F1EFE9',img:'images/m-tee1.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-tee1-black.jpg'},{name:'Sand',hex:'#C9B79B',img:'images/m-tee1-sand.jpg'},{name:'Sage',hex:'#9AA587',img:'images/m-tee1-sage.jpg'}],
- 22:[{name:'White',hex:'#F1EFE9',img:'images/m-boxy.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-boxy-black.jpg'},{name:'Sand',hex:'#C9B79B',img:'images/m-boxy-sand.jpg'},{name:'Sage',hex:'#9AA587',img:'images/m-boxy-sage.jpg'}],
- 23:[{name:'White',hex:'#F1EFE9',img:'images/m-henley.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-henley-black.jpg'},{name:'Sand',hex:'#C9B79B',img:'images/m-henley-sand.jpg'},{name:'Sage',hex:'#9AA587',img:'images/m-henley-sage.jpg'}],
- 24:[{name:'White',hex:'#F1EFE9',img:'images/m-camp.jpg'},{name:'Sky',hex:'#AEC2CE',img:'images/m-camp-sky.jpg'},{name:'Stone',hex:'#BFB6A6',img:'images/m-camp-stone.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-camp-black.jpg'}],
- 25:[{name:'White',hex:'#F1EFE9',img:'images/m-oxford.jpg'},{name:'Sky',hex:'#AEC2CE',img:'images/m-oxford-sky.jpg'},{name:'Stone',hex:'#BFB6A6',img:'images/m-oxford-stone.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-oxford-black.jpg'}],
- 26:[{name:'Stone',hex:'#BFB6A6',img:'images/m-overshirt.jpg'},{name:'Sky',hex:'#AEC2CE',img:'images/m-overshirt-sky.jpg'},{name:'White',hex:'#F1EFE9',img:'images/m-overshirt-white.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-overshirt-black.jpg'}],
- 27:[{name:'Oatmeal',hex:'#D7CDB8',img:'images/m-halfzip.jpg'},{name:'Charcoal',hex:'#3A3A38',img:'images/m-halfzip-charcoal.jpg'},{name:'Camel',hex:'#B68A5B',img:'images/m-halfzip-camel.jpg'},{name:'Forest',hex:'#404F40',img:'images/m-halfzip-forest.jpg'}],
- 28:[{name:'Oatmeal',hex:'#D7CDB8',img:'images/m-cashmere.jpg'},{name:'Charcoal',hex:'#3A3A38',img:'images/m-cashmere-charcoal.jpg'},{name:'Camel',hex:'#B68A5B',img:'images/m-cashmere-camel.jpg'},{name:'Forest',hex:'#404F40',img:'images/m-cashmere-forest.jpg'}],
- 29:[{name:'Camel',hex:'#B68A5B',img:'images/m-quilted.jpg'},{name:'Charcoal',hex:'#3A3A38',img:'images/m-quilted-charcoal.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-quilted-black.jpg'},{name:'Stone',hex:'#B7AE9E',img:'images/m-quilted-stone.jpg'}],
- 30:[{name:'Camel',hex:'#B68A5B',img:'images/m-topcoat.jpg'},{name:'Charcoal',hex:'#3A3A38',img:'images/m-topcoat-charcoal.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-topcoat-black.jpg'},{name:'Stone',hex:'#B7AE9E',img:'images/m-topcoat-stone.jpg'}],
- // Men - Bottoms
- 31:[{name:'Stone',hex:'#BBB1A0',img:'images/m-lounge-short.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-lounge-short-black.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/m-lounge-short-olive.jpg'},{name:'Sand',hex:'#C9B79B',img:'images/m-lounge-short-sand.jpg'}],
- 32:[{name:'Stone',hex:'#BBB1A0',img:'images/m-sweatshort.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-sweatshort-black.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/m-sweatshort-olive.jpg'},{name:'Sand',hex:'#C9B79B',img:'images/m-sweatshort-sand.jpg'}],
- 33:[{name:'Stone',hex:'#BBB1A0',img:'images/m-linen.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-linen-black.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/m-linen-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/m-linen-navy.jpg'}],
- 34:[{name:'Black',hex:'#1C1A17',img:'images/m-chino.jpg'},{name:'Stone',hex:'#BBB1A0',img:'images/m-chino-stone.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/m-chino-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/m-chino-navy.jpg'}],
- 35:[{name:'Black',hex:'#1C1A17',img:'images/m-carpenter.jpg'},{name:'Stone',hex:'#BBB1A0',img:'images/m-carpenter-stone.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/m-carpenter-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/m-carpenter-navy.jpg'}],
- 36:[{name:'Stone',hex:'#BBB1A0',img:'images/m-cord.jpg'},{name:'Black',hex:'#1C1A17',img:'images/m-cord-black.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/m-cord-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/m-cord-navy.jpg'}],
- 37:[{name:'Black',hex:'#1C1A17',img:'images/m-travel.jpg'},{name:'Stone',hex:'#BBB1A0',img:'images/m-travel-stone.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/m-travel-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/m-travel-navy.jpg'}],
- 38:[{name:'Black',hex:'#1C1A17',img:'images/m-pleat.jpg'},{name:'Stone',hex:'#BBB1A0',img:'images/m-pleat-stone.jpg'},{name:'Olive',hex:'#6B6B4E',img:'images/m-pleat-olive.jpg'},{name:'Navy',hex:'#2C3340',img:'images/m-pleat-navy.jpg'}],
- 39:[{name:'Indigo',hex:'#3C4A63',img:'images/m-selvedge.jpg'},{name:'Mid Wash',hex:'#7E94AE',img:'images/m-selvedge-midwash.jpg'},{name:'Black',hex:'#23242A',img:'images/m-selvedge-black.jpg'},{name:'Ecru',hex:'#D7CDB8',img:'images/m-selvedge-ecru.jpg'}],
- 40:[{name:'Indigo',hex:'#3C4A63',img:'images/m-rawdenim.jpg'},{name:'Mid Wash',hex:'#7E94AE',img:'images/m-rawdenim-midwash.jpg'},{name:'Black',hex:'#23242A',img:'images/m-rawdenim-black.jpg'},{name:'Ecru',hex:'#D7CDB8',img:'images/m-rawdenim-ecru.jpg'}],
-};
-/* Fallback shared palettes for silhouette types */
-const PAL = {
- tee:[{name:'White',hex:'#F1EFE9'},{name:'Black',hex:'#1C1A17'},{name:'Sand',hex:'#C9B79B'},{name:'Sage',hex:'#9AA587'}],
- shirt:[{name:'White',hex:'#F1EFE9'},{name:'Sky',hex:'#AEC2CE'},{name:'Stone',hex:'#BFB6A6'},{name:'Black',hex:'#1C1A17'}],
- knit:[{name:'Oatmeal',hex:'#D7CDB8'},{name:'Charcoal',hex:'#3A3A38'},{name:'Camel',hex:'#B68A5B'},{name:'Forest',hex:'#404F40'}],
- coat:[{name:'Camel',hex:'#B68A5B'},{name:'Charcoal',hex:'#3A3A38'},{name:'Black',hex:'#1C1A17'},{name:'Stone',hex:'#B7AE9E'}],
- cami:[{name:'Ivory',hex:'#ECE6D8'},{name:'Black',hex:'#1C1A17'},{name:'Blush',hex:'#D7B9B0'},{name:'Slate',hex:'#7E8794'}],
- trouser:[{name:'Black',hex:'#1C1A17'},{name:'Stone',hex:'#BBB1A0'},{name:'Olive',hex:'#6B6B4E'},{name:'Navy',hex:'#2C3340'}],
- denim:[{name:'Indigo',hex:'#3C4A63'},{name:'Mid Wash',hex:'#7E94AE'},{name:'Black',hex:'#23242A'},{name:'Ecru',hex:'#D7CDB8'}],
- skirt:[{name:'Black',hex:'#1C1A17'},{name:'Cream',hex:'#E7DFCC'},{name:'Burgundy',hex:'#5F2A30'},{name:'Camel',hex:'#B68A5B'}],
- short:[{name:'Stone',hex:'#BBB1A0'},{name:'Black',hex:'#1C1A17'},{name:'Olive',hex:'#6B6B4E'},{name:'Sand',hex:'#C9B79B'}]
+const IMG={
+ 1:'images/w-tee.jpg',2:'images/w-tank.jpg',3:'images/w-blouse.jpg',4:'images/w-cami.jpg',
+ 5:'images/w-linen-shirt.jpg',6:'images/w-poplin.jpg',7:'images/w-sweater.jpg',8:'images/w-turtleneck.jpg',
+ 9:'images/w-jacket.jpg',10:'images/w-blazer.jpg',
+ 11:'images/w-shorts.jpg',12:'images/w-lounge.jpg',13:'images/w-skirt.jpg',14:'images/w-jeans.jpg',
+ 15:'images/w-midi-skirt.jpg',16:'images/w-flare.jpg',17:'images/w-trousers.jpg',18:'images/w-wide-leg.jpg',
+ 19:'images/w-pleat-skirt.jpg',20:'images/w-pencil-skirt.jpg',
+ 21:'images/m-tee.jpg',22:'images/m-boxy-tee.jpg',23:'images/m-henley.jpg',24:'images/m-camp-shirt.jpg',
+ 25:'images/m-oxford.jpg',26:'images/m-overshirt.jpg',27:'images/m-halfzip.jpg',28:'images/m-sweater.jpg',
+ 29:'images/m-quilted.jpg',30:'images/m-topcoat.jpg',
+ 31:'images/m-lounge-short.jpg',32:'images/m-sweatshort.jpg',33:'images/m-linen-pant.jpg',34:'images/m-chino.jpg',
+ 35:'images/m-carpenter.jpg',36:'images/m-cord.jpg',37:'images/m-travel.jpg',38:'images/m-pleat.jpg',
+ 39:'images/m-selvedge.jpg',40:'images/m-raw-denim.jpg'
 };
 
-/* =========================================================================
- CATALOG
- ========================================================================= */
-const PRODUCTS = [
- {id:1,name:'Featherweight Cotton Tee',gender:'Women',type:'Tops',sil:'tee',price:34.99},
- {id:2,name:'Sculpt Rib Tank',gender:'Women',type:'Tops',sil:'cami',price:12.99},
- {id:3,name:'Draped Jersey Top',gender:'Women',type:'Tops',sil:'tee',price:49.99},
- {id:4,name:'Bias Silk Camisole',gender:'Women',type:'Tops',sil:'cami',price:59.99},
- {id:5,name:'Linen Camp Shirt',gender:'Women',type:'Tops',sil:'shirt',price:69.99},
- {id:6,name:'Oversized Poplin Shirt',gender:'Women',type:'Tops',sil:'shirt',price:79.99},
- {id:7,name:'Merino Crew Knit',gender:'Women',type:'Tops',sil:'knit',price:99.99,was:198.00},
- {id:8,name:'Cashmere Turtleneck',gender:'Women',type:'Tops',sil:'knit',price:134.99},
- {id:9,name:'Cropped Bouclé Jacket',gender:'Women',type:'Tops',sil:'coat',price:199.99},
- {id:10,name:'Structured Wool Blazer',gender:'Women',type:'Tops',sil:'coat',price:249.99},
- {id:11,name:'Organic Cotton Short',gender:'Women',type:'Bottoms',sil:'short',price:44.99},
- {id:12,name:'Ribbed Knit Lounge Pant',gender:'Women',type:'Bottoms',sil:'trouser',price:59.99},
- {id:13,name:'Satin Slip Skirt',gender:'Women',type:'Bottoms',sil:'skirt',price:74.99},
- {id:14,name:'Raw Hem Straight Jean',gender:'Women',type:'Bottoms',sil:'denim',price:94.99},
- {id:15,name:'Bias-Cut Midi Skirt',gender:'Women',type:'Bottoms',sil:'skirt',price:99.99},
- {id:16,name:'Cropped Flare Denim',gender:'Women',type:'Bottoms',sil:'denim',price:94.99,was:178.00},
- {id:17,name:'High-Rise Tailored Trouser',gender:'Women',type:'Bottoms',sil:'trouser',price:109.99},
- {id:18,name:'Wide-Leg Crepe Pant',gender:'Women',type:'Bottoms',sil:'trouser',price:134.99},
- {id:19,name:'Pleated Wool Skirt',gender:'Women',type:'Bottoms',sil:'skirt',price:104.99},
- {id:20,name:'Leather Pencil Skirt',gender:'Women',type:'Bottoms',sil:'skirt',price:199.99},
- {id:21,name:'Pima Cotton Tee',gender:'Men',type:'Tops',sil:'tee',price:34.99},
- {id:22,name:'Heavyweight Boxy Tee',gender:'Men',type:'Tops',sil:'tee',price:44.99},
- {id:23,name:'Waffle Henley',gender:'Men',type:'Tops',sil:'tee',price:49.99},
- {id:24,name:'Camp Collar Shirt',gender:'Men',type:'Tops',sil:'shirt',price:64.99},
- {id:25,name:'Oxford Button-Down',gender:'Men',type:'Tops',sil:'shirt',price:69.99},
- {id:26,name:'Garment-Dyed Overshirt',gender:'Men',type:'Tops',sil:'shirt',price:79.99,was:170.00},
- {id:27,name:'Merino Half-Zip',gender:'Men',type:'Tops',sil:'knit',price:109.99},
- {id:28,name:'Cashmere Crew Sweater',gender:'Men',type:'Tops',sil:'knit',price:134.99},
- {id:29,name:'Quilted Liner Jacket',gender:'Men',type:'Tops',sil:'coat',price:199.99},
- {id:30,name:'Wool Topcoat',gender:'Men',type:'Tops',sil:'coat',price:249.99},
- {id:31,name:'Drawstring Lounge Short',gender:'Men',type:'Bottoms',sil:'short',price:12.99},
- {id:32,name:'Garment-Dyed Sweatshort',gender:'Men',type:'Bottoms',sil:'short',price:44.99},
- {id:33,name:'Linen Drawstring Pant',gender:'Men',type:'Bottoms',sil:'trouser',price:57.99},
- {id:34,name:'Tapered Tech Chino',gender:'Men',type:'Bottoms',sil:'trouser',price:60.99},
- {id:35,name:'Relaxed Carpenter Pant',gender:'Men',type:'Bottoms',sil:'trouser',price:79.99},
- {id:36,name:'Five-Pocket Cord Pant',gender:'Men',type:'Bottoms',sil:'trouser',price:59.99,was:160.00},
- {id:37,name:'Pull-On Travel Trouser',gender:'Men',type:'Bottoms',sil:'trouser',price:94.99},
- {id:38,name:'Pleated Wool Trouser',gender:'Men',type:'Bottoms',sil:'trouser',price:104.99},
- {id:39,name:'Selvedge Straight Jean',gender:'Men',type:'Bottoms',sil:'denim',price:99.99},
- {id:40,name:'Raw Denim Loose Jean',gender:'Men',type:'Bottoms',sil:'denim',price:134.99}
+const PRODUCTS=[
+ {id:1,name:'Featherweight Cotton Tee',gender:'Women',type:'Tops',price:29.99},
+ {id:2,name:'Sculpt Rib Tank',gender:'Women',type:'Tops',price:7.99},
+ {id:3,name:'Draped Jersey Top',gender:'Women',type:'Tops',price:33.99},
+ {id:4,name:'Bias Silk Camisole',gender:'Women',type:'Tops',price:39.99},
+ {id:5,name:'Linen Camp Shirt',gender:'Women',type:'Tops',price:49.99},
+ {id:6,name:'Oversized Poplin Shirt',gender:'Women',type:'Tops',price:54.99},
+ {id:7,name:'Merino Crew Knit',gender:'Women',type:'Tops',price:59.99,was:129.99},
+ {id:8,name:'Cashmere Turtleneck',gender:'Women',type:'Tops',price:97.99},
+ {id:9,name:'Cropped Bouclé Jacket',gender:'Women',type:'Tops',price:124.99},
+ {id:10,name:'Structured Wool Blazer',gender:'Women',type:'Tops',price:199.99},
+ {id:11,name:'Organic Cotton Short',gender:'Women',type:'Bottoms',price:24.99},
+ {id:12,name:'Ribbed Knit Lounge Pant',gender:'Women',type:'Bottoms',price:34.99},
+ {id:13,name:'Satin Slip Skirt',gender:'Women',type:'Bottoms',price:44.99},
+ {id:14,name:'Raw Hem Straight Jean',gender:'Women',type:'Bottoms',price:59.99},
+ {id:15,name:'Bias-Cut Midi Skirt',gender:'Women',type:'Bottoms',price:54.99},
+ {id:16,name:'Cropped Flare Denim',gender:'Women',type:'Bottoms',price:64.99,was:129.99},
+ {id:17,name:'High-Rise Tailored Trouser',gender:'Women',type:'Bottoms',price:79.99},
+ {id:18,name:'Wide-Leg Crepe Pant',gender:'Women',type:'Bottoms',price:99.99},
+ {id:19,name:'Pleated Wool Skirt',gender:'Women',type:'Bottoms',price:69.99},
+ {id:20,name:'Leather Pencil Skirt',gender:'Women',type:'Bottoms',price:124.99},
+ {id:21,name:'Pima Cotton Tee',gender:'Men',type:'Tops',price:29.99},
+ {id:22,name:'Heavyweight Boxy Tee',gender:'Men',type:'Tops',price:34.99},
+ {id:23,name:'Waffle Henley',gender:'Men',type:'Tops',price:39.99},
+ {id:24,name:'Camp Collar Shirt',gender:'Men',type:'Tops',price:47.99},
+ {id:25,name:'Oxford Button-Down',gender:'Men',type:'Tops',price:54.99},
+ {id:26,name:'Garment-Dyed Overshirt',gender:'Men',type:'Tops',price:59.99,was:129.99},
+ {id:27,name:'Merino Half-Zip',gender:'Men',type:'Tops',price:79.99},
+ {id:28,name:'Cashmere Crew Sweater',gender:'Men',type:'Tops',price:97.99},
+ {id:29,name:'Quilted Liner Jacket',gender:'Men',type:'Tops',price:124.99},
+ {id:30,name:'Wool Topcoat',gender:'Men',type:'Tops',price:199.99},
+ {id:31,name:'Drawstring Lounge Short',gender:'Men',type:'Bottoms',price:7.99},
+ {id:32,name:'Garment-Dyed Sweatshort',gender:'Men',type:'Bottoms',price:33.99},
+ {id:33,name:'Linen Drawstring Pant',gender:'Men',type:'Bottoms',price:43.99},
+ {id:34,name:'Tapered Tech Chino',gender:'Men',type:'Bottoms',price:49.99},
+ {id:35,name:'Relaxed Carpenter Pant',gender:'Men',type:'Bottoms',price:54.99},
+ {id:36,name:'Five-Pocket Cord Pant',gender:'Men',type:'Bottoms',price:44.99,was:99.99},
+ {id:37,name:'Pull-On Travel Trouser',gender:'Men',type:'Bottoms',price:59.99},
+ {id:38,name:'Pleated Wool Trouser',gender:'Men',type:'Bottoms',price:69.99},
+ {id:39,name:'Selvedge Straight Jean',gender:'Men',type:'Bottoms',price:64.99},
+ {id:40,name:'Raw Denim Loose Jean',gender:'Men',type:'Bottoms',price:79.99}
 ];
-PRODUCTS.forEach(p=>{ p.colors = PAL_PRODUCTS[p.id] || PAL[p.sil] || PAL.tee; });
+PRODUCTS.forEach(p=>{p.img=IMG[p.id]});
 
-/* =========================================================================
- STATE
- ========================================================================= */
-const state = { gender:'all', type:'all', sort:'featured', cart:[], color:{} };
-PRODUCTS.forEach(p=> state.color[p.id]=0);
-const FREE_SHIP = 200;
-const fmt = n => '$'+n.toFixed(2);
+const S={gender:'all',type:'all',sort:'featured',cart:[]};
+const FREE=300,fmt=n=>'$'+n.toFixed(2);
+const grid=document.getElementById('grid'),shopCount=document.getElementById('shopCount'),shopTitle=document.getElementById('shopTitle');
 
-const grid=document.getElementById('grid'),
- shopCount=document.getElementById('shopCount'),
- shopTitle=document.getElementById('shopTitle');
-
-function visibleProducts(){
- let list = PRODUCTS.filter(p =>
- (state.gender==='all'||p.gender===state.gender) &&
- (state.type==='all'||p.type===state.type));
- if(state.sort==='low') list.sort((a,b)=>a.price-b.price);
- else if(state.sort==='high') list.sort((a,b)=>b.price-a.price);
- else if(state.sort==='name') list.sort((a,b)=>a.name.localeCompare(b.name));
- return list;
+function visible(){
+ let l=PRODUCTS.filter(p=>(S.gender==='all'||p.gender===S.gender)&&(S.type==='all'||p.type===S.type));
+ if(S.sort==='low')l.sort((a,b)=>a.price-b.price);
+ else if(S.sort==='high')l.sort((a,b)=>b.price-a.price);
+ else if(S.sort==='name')l.sort((a,b)=>a.name.localeCompare(b.name));
+ return l;
 }
 
 function render(){
- const list=visibleProducts();
- shopCount.textContent=list.length+' piece'+(list.length===1?'':'s');
- let title='The Collection';
- if(state.gender!=='all'&&state.type!=='all') title=state.gender+"'s "+state.type;
- else if(state.gender!=='all') title=state.gender;
- else if(state.type!=='all') title='All '+state.type;
- shopTitle.textContent=title;
-
- if(!list.length){ grid.innerHTML='<div class="empty"><p>Nothing here yet.</p></div>'; return; }
-
+ const list=visible();
+ shopCount.textContent=list.length+' style'+(list.length===1?'':'s');
+ let t='All Styles';
+ if(S.gender!=='all'&&S.type!=='all')t=S.gender+"'s "+S.type;
+ else if(S.gender!=='all')t=S.gender;
+ else if(S.type!=='all')t='All '+S.type;
+ shopTitle.textContent=t;
+ if(!list.length){grid.innerHTML='<div class="empty-msg">No styles found.</div>';return;}
  grid.innerHTML=list.map(p=>{
- const ci=state.color[p.id], color=p.colors[ci];
- const dots=p.colors.map((c,i)=>
- `<span class="dot ${i===ci?'active':''}" style="background:${c.hex}" data-cdot="${p.id}" data-cidx="${i}" title="${c.name}"></span>`).join('');
- return `<article class="card" data-id="${p.id}">
- <div class="swatch" style="--fabric:${color.hex}" data-add="${p.id}">
- ${p.was?'<span class="sale-flag">Sale</span>':''}
- ${media(p,color)}
- <button class="quick" data-add="${p.id}">Add to bag — ${fmt(p.price)}</button>
- </div>
- <div class="card-meta">
- <div class="card-cat">${p.gender} · ${p.type}</div>
- <div class="card-name">${p.name}</div>
- <div class="swatches">${dots}</div>
- <div class="card-color" data-cname="${p.id}">${color.name}</div>
- <div class="card-price">
- ${p.was?`<span class="now sale">${fmt(p.price)}</span><span class="was">${fmt(p.was)}</span>`
- :`<span class="now">${fmt(p.price)}</span>`}
- </div>
- </div></article>`;
+  return `<article class="card" data-id="${p.id}">
+   <div class="card-img" data-add="${p.id}">
+    ${p.was?'<span class="sale-tag">Sale</span>':''}
+    <img src="${p.img}" alt="${p.name}">
+    <button class="quick-add" data-add="${p.id}">+ Add to Cart</button>
+   </div>
+   <div class="card-body">
+    <div class="card-name">${p.name}</div>
+    <div class="card-tag">${p.gender} · ${p.type}</div>
+    <div class="card-price">
+     ${p.was?`<span class="now sale">${fmt(p.price)}</span><span class="was">${fmt(p.was)}</span>`:`<span class="now">${fmt(p.price)}</span>`}
+    </div>
+   </div></article>`;
  }).join('');
-
- requestAnimationFrame(()=>{
- document.querySelectorAll('.card').forEach((c,i)=> setTimeout(()=>c.classList.add('shown'), i*26));
- });
+ requestAnimationFrame(()=>{document.querySelectorAll('.card').forEach((c,i)=>setTimeout(()=>c.classList.add('shown'),i*20));});
 }
 
-/* colour swatch selection */
-grid.addEventListener('click', e=>{
- const dot=e.target.closest('[data-cdot]');
- if(!dot) return;
- e.stopPropagation();
- const id=+dot.dataset.cdot, idx=+dot.dataset.cidx;
- state.color[id]=idx;
- const p=PRODUCTS.find(p=>p.id===id), color=p.colors[idx];
- const card=dot.closest('.card');
- const sw=card.querySelector('.swatch');
- sw.style.setProperty('--fabric',color.hex);
- const cur=sw.querySelector('.ph, .garment');
- const wrap=document.createElement('div'); wrap.innerHTML=media(p,color);
- cur.replaceWith(wrap.firstChild);
- card.querySelectorAll('.dot').forEach(d=>d.classList.toggle('active', +d.dataset.cidx===idx));
- card.querySelector('[data-cname]').textContent=color.name;
+document.getElementById('filters').addEventListener('click',e=>{
+ const c=e.target.closest('.chip');if(!c)return;
+ const f=c.dataset.filter;
+ S[f==='gender'?'gender':'type']=c.dataset.value;
+ document.querySelectorAll(`.chip[data-filter="${f}"]`).forEach(x=>x.classList.remove('on'));
+ c.classList.add('on');syncNav();render();
 });
+document.getElementById('sortSel').addEventListener('change',e=>{S.sort=e.target.value;render();});
 
-/* filters */
-document.getElementById('filters').addEventListener('click', e=>{
- const chip=e.target.closest('.chip'); if(!chip) return;
- const f=chip.dataset.filter;
- state[f==='gender'?'gender':'type']=chip.dataset.value;
- document.querySelectorAll(`.chip[data-filter="${f}"]`).forEach(c=>c.classList.remove('is-active'));
- chip.classList.add('is-active'); syncNav(); render();
-});
-document.getElementById('sortSel').addEventListener('change', e=>{ state.sort=e.target.value; render(); });
-
-function applyGender(val){
- state.gender=val;
- document.querySelectorAll('.chip[data-filter="gender"]').forEach(c=>c.classList.toggle('is-active',c.dataset.value===val));
- syncNav(); render();
+function applyFilter(gender,type){
+ if(gender){S.gender=gender;document.querySelectorAll('.chip[data-filter="gender"]').forEach(c=>c.classList.toggle('on',c.dataset.value===gender));}
+ if(type){S.type=type;document.querySelectorAll('.chip[data-filter="type"]').forEach(c=>c.classList.toggle('on',c.dataset.value===type));}
+ syncNav();render();
 }
 function syncNav(){
- document.querySelectorAll('.nav-link[data-nav]').forEach(l=>{
- const v=l.dataset.nav==='all'?'all':l.dataset.nav;
- l.classList.toggle('is-active',(v==='all'&&state.gender==='all')||v===state.gender);
- });
+ document.querySelectorAll('.header-nav a[data-nav]').forEach(a=>a.classList.toggle('active',a.dataset.nav===S.gender));
 }
 document.querySelectorAll('[data-nav]').forEach(el=>{
- el.addEventListener('click', ()=>{ const v=el.dataset.nav; applyGender(v==='all'?'all':v); });
+ el.addEventListener('click',()=>{applyFilter(el.dataset.nav||'all',el.dataset.type||'all');});
 });
 
-/* cart */
 const overlay=document.getElementById('overlay'),drawer=document.getElementById('drawer'),
  drawerBody=document.getElementById('drawerBody'),drawerFoot=document.getElementById('drawerFoot'),
  bagCount=document.getElementById('bagCount');
-function openDrawer(){overlay.classList.add('open');drawer.classList.add('open');}
-function closeDrawer(){overlay.classList.remove('open');drawer.classList.remove('open');}
-document.getElementById('bagBtn').addEventListener('click',openDrawer);
-document.getElementById('drawerClose').addEventListener('click',closeDrawer);
-overlay.addEventListener('click',closeDrawer);
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDrawer();});
+function openCart(){overlay.classList.add('open');drawer.classList.add('open');}
+function closeCart(){overlay.classList.remove('open');drawer.classList.remove('open');}
+document.getElementById('bagBtn').addEventListener('click',openCart);
+document.getElementById('drawerClose').addEventListener('click',closeCart);
+overlay.addEventListener('click',closeCart);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCart();});
 
 function addToCart(id){
- const cidx=state.color[id];
- const item=state.cart.find(c=>c.id===id&&c.cidx===cidx);
- if(item) item.qty++; else state.cart.push({id,cidx,qty:1});
+ const item=S.cart.find(c=>c.id===id);
+ if(item)item.qty++;else S.cart.push({id,qty:1});
  updateCart();
- const p=PRODUCTS.find(p=>p.id===id);
- showToast(`${p.name} — ${p.colors[cidx].name} added to your bag`);
+ toast(PRODUCTS.find(p=>p.id===id).name+' added to cart');
 }
-function changeQty(id,cidx,d){
- const item=state.cart.find(c=>c.id===id&&c.cidx===cidx); if(!item) return;
- item.qty+=d;
- if(item.qty<=0) state.cart=state.cart.filter(c=>!(c.id===id&&c.cidx===cidx));
+function changeQty(id,d){
+ const item=S.cart.find(c=>c.id===id);if(!item)return;
+ item.qty+=d;if(item.qty<=0)S.cart=S.cart.filter(c=>c.id!==id);
  updateCart();
 }
-function cartTotal(){return state.cart.reduce((s,c)=>s+PRODUCTS.find(p=>p.id===c.id).price*c.qty,0);}
-function cartQty(){return state.cart.reduce((s,c)=>s+c.qty,0);}
+function cartTotal(){return S.cart.reduce((s,c)=>s+PRODUCTS.find(p=>p.id===c.id).price*c.qty,0);}
+function cartQty(){return S.cart.reduce((s,c)=>s+c.qty,0);}
 
 function updateCart(){
- const q=cartQty();
- bagCount.textContent=q; bagCount.classList.toggle('show',q>0);
- if(!state.cart.length){
- drawerBody.innerHTML='<div class="cart-empty"><p>Your bag is empty.</p><span style="font-size:.8rem">Pieces you add will appear here.</span></div>';
- drawerFoot.style.display='none';
- } else {
- drawerBody.innerHTML=state.cart.map(c=>{
- const p=PRODUCTS.find(p=>p.id===c.id), color=p.colors[c.cidx];
- return `<div class="ci">
- <div class="ci-thumb" style="--fabric:${color.hex}">${media(p,color)}</div>
- <div class="ci-info">
- <div class="ci-name">${p.name}</div>
- <div class="ci-cat">${color.name} · ${p.gender}</div>
- <div class="ci-bottom">
- <div class="qty">
- <button data-dec="${p.id}" data-dci="${c.cidx}" aria-label="Decrease">−</button>
- <span>${c.qty}</span>
- <button data-inc="${p.id}" data-ici="${c.cidx}" aria-label="Increase">+</button>
- </div>
- <div class="ci-price">${fmt(p.price*c.qty)}</div>
- </div></div></div>`;
- }).join('');
- drawerFoot.style.display='block';
- document.getElementById('subtotal').textContent=fmt(cartTotal());
+ const q=cartQty();bagCount.textContent=q;bagCount.classList.toggle('show',q>0);
+ if(!S.cart.length){
+  drawerBody.innerHTML='<div class="cart-empty"><p>Your cart is empty</p><span style="font-size:.76rem">Add something you love.</span></div>';
+  drawerFoot.style.display='none';
+ }else{
+  drawerBody.innerHTML=S.cart.map(c=>{
+   const p=PRODUCTS.find(p=>p.id===c.id);
+   return `<div class="ci">
+    <div class="ci-thumb"><img src="${p.img}" alt="${p.name}"></div>
+    <div class="ci-info"><div class="ci-name">${p.name}</div>
+    <div class="ci-detail">${p.gender} · ${p.type}</div>
+    <div class="ci-bottom"><div class="qty">
+     <button data-dec="${p.id}">−</button><span>${c.qty}</span>
+     <button data-inc="${p.id}">+</button></div>
+    <div class="ci-price">${fmt(p.price*c.qty)}</div></div></div></div>`;
+  }).join('');
+  drawerFoot.style.display='block';
+  document.getElementById('subtotal').textContent=fmt(cartTotal());
  }
- const total=cartTotal(), remain=Math.max(0,FREE_SHIP-total);
- document.getElementById('shipFill').style.width=Math.min(100,(total/FREE_SHIP)*100)+'%';
- document.getElementById('shipMsg').textContent = remain>0
- ? `Add ${fmt(remain)} more for complimentary shipping.`
- : 'You have unlocked complimentary shipping.';
+ const total=cartTotal(),remain=Math.max(0,FREE-total);
+ document.getElementById('shipFill').style.width=Math.min(100,(total/FREE)*100)+'%';
+ document.getElementById('shipMsg').textContent=remain>0?`Add ${fmt(remain)} more for free shipping`:'Free shipping unlocked! ✓';
 }
 
 document.addEventListener('click',e=>{
  const add=e.target.closest('[data-add]');
- if(add){ e.stopPropagation(); addToCart(+add.dataset.add); return; }
- const inc=e.target.closest('[data-inc]');
- if(inc){ changeQty(+inc.dataset.inc,+inc.dataset.ici,1); return; }
- const dec=e.target.closest('[data-dec]');
- if(dec){ changeQty(+dec.dataset.dec,+dec.dataset.dci,-1); return; }
+ if(add){e.stopPropagation();addToCart(+add.dataset.add);return;}
+ const inc=e.target.closest('[data-inc]');if(inc){changeQty(+inc.dataset.inc,1);return;}
+ const dec=e.target.closest('[data-dec]');if(dec){changeQty(+dec.dataset.dec,-1);return;}
 });
-document.getElementById('checkoutBtn').addEventListener('click',()=>showToast('This is a demo storefront — checkout isn\u2019t connected.'));
+document.getElementById('checkoutBtn').addEventListener('click',()=>toast('Demo storefront — checkout not connected'));
+document.getElementById('searchBtn').addEventListener('click',()=>toast('Search coming soon — use the filters'));
 
-let toastTimer; const toast=document.getElementById('toast');
-function showToast(msg){
- document.getElementById('toastMsg').textContent=msg;
- toast.classList.add('show'); clearTimeout(toastTimer);
- toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
-}
-document.getElementById('newsBtn').addEventListener('click',()=>{
- const v=document.getElementById('newsEmail').value.trim();
- if(/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ showToast('Welcome — check your inbox to confirm.'); document.getElementById('newsEmail').value=''; }
- else showToast('Please enter a valid email address.');
-});
-document.getElementById('searchBtn').addEventListener('click',()=>showToast('Search is a demo — try the filters below.'));
+let toastTimer;const toastEl=document.getElementById('toast');
+function toast(msg){document.getElementById('toastMsg').textContent=msg;toastEl.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>toastEl.classList.remove('show'),2400);}
 
-/* hero lookbook */
-document.querySelectorAll('.look').forEach(l=> l.insertAdjacentHTML('afterbegin', garmentSVG(l.dataset.sil)));
-
-/* marquee */
-const stripWords=['Natural fibers','A closed palette','Made to be kept','Ready-to-wear','Repairs for life','Quiet luxury'];
-const stripHTML=stripWords.map(w=>`<span>${w}</span>`).join('');
-document.getElementById('strip').innerHTML=stripHTML+stripHTML;
-
-/* scroll reveal */
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.15});
-document.querySelectorAll('.reveal:not(.in)').forEach(el=>io.observe(el));
-
-render(); updateCart(); syncNav();
+render();updateCart();syncNav();
 </script>
 </body>
 </html>
