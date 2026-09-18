@@ -136,9 +136,18 @@ header{background:#fff;border-bottom:1px solid #e5e5e5;padding:16px 24px;display
       </div>
 
       <div class="venmo-section" id="venmoSection">
-        <div class="form-group">
-          <label>Venmo Username</label>
-          <input type="text" id="venmoName" placeholder="@YourVenmoName">
+        <div style="text-align:center;padding:20px 0">
+          <img src="images/eos-logo-circle.jpg" alt="EOS Clothing Co." style="width:80px;height:80px;border-radius:50%;margin:0 auto 12px;display:block">
+          <div style="font-size:1.1rem;font-weight:800;margin-bottom:2px">Elite One Stop</div>
+          <div style="font-size:.82rem;color:#888;margin-bottom:16px">@Eliteonestop</div>
+          <img src="images/venmo-qr.jpg" alt="Venmo QR Code" style="max-width:220px;margin:0 auto 12px;display:block;border-radius:8px">
+          <div style="margin-bottom:16px">
+            <svg width="80" height="20" viewBox="0 0 80 20"><text x="0" y="16" font-family="Inter,sans-serif" font-weight="900" font-size="18" fill="#008CFF">venmo</text></svg>
+          </div>
+          <p style="font-size:.82rem;color:#555;margin-bottom:8px"><strong>1.</strong> Search for our handle:</p>
+          <p style="font-size:.82rem;margin-bottom:4px">Venmo: <strong style="color:#008CFF">@Eliteonestop</strong></p>
+          <a href="https://venmo.com/u/Eliteonestop" target="_blank" style="font-size:.82rem;color:#008CFF;text-decoration:underline">https://venmo.com/u/Eliteonestop</a>
+          <p style="font-size:.72rem;color:#888;margin-top:16px">Send your order total via Venmo, then click "Place Order" to confirm.</p>
         </div>
       </div>
     </div>
@@ -302,7 +311,7 @@ function checkForm(){
   const cvc=document.getElementById('cardCvc').value.trim();
   payValid=name.length>1&&num.length>=12&&exp.length>=4&&cvc.length>=3;
  }else{
-  payValid=document.getElementById('venmoName').value.trim().length>1;
+  payValid=true; // Venmo pays externally via QR/link
  }
  const shipName=document.getElementById('shipName').value.trim();
  const shipAddr=document.getElementById('shipAddr').value.trim();
