@@ -25,7 +25,8 @@ img{display:block;max-width:100%}
 
 header{position:sticky;top:0;z-index:60;background:#fff;border-bottom:1px solid var(--border)}
 .header-main{max-width:1400px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:56px}
-.logo{font-weight:900;font-size:1.1rem;letter-spacing:-.02em;text-transform:uppercase}
+.logo{font-weight:900;font-size:1.1rem;letter-spacing:-.02em;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.logo-img{width:36px;height:36px;border-radius:50%;object-fit:cover}
 .header-nav{display:flex;gap:4px}
 .header-nav a{font-size:.82rem;font-weight:700;padding:8px 16px;text-transform:uppercase;letter-spacing:.03em;border-bottom:3px solid transparent;transition:.15s}
 .header-nav a:hover,.header-nav a.active{border-bottom-color:var(--ink)}
@@ -162,7 +163,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border)}
 
 <header>
   <div class="header-main">
-    <a class="logo" href="#top">EOS Clothing Co.</a>
+    <a class="logo" href="#top"><img class="logo-img" src="images/eos-logo-circle.jpg" alt="EOS Logo">EOS Clothing Co.</a>
     <nav class="header-nav">
       <a href="#shop" data-nav="Women">Women</a>
       <a href="#shop" data-nav="Men">Men</a>
@@ -185,6 +186,7 @@ footer{background:var(--bg2);border-top:1px solid var(--border)}
 <div class="hero-banner">
   <img src="images/hero-banner.jpg" alt="EOS Clothing Co. Fall Collection">
   <div class="hero-overlay">
+    <img src="images/eos-logo-circle.jpg" alt="EOS Clothing Co." style="width:100px;height:100px;border-radius:50%;margin-bottom:16px;border:3px solid rgba(255,255,255,.8)">
     <h1>Fall New Arrivals</h1>
     <p>40+ new styles — quality you can feel, prices you'll love</p>
     <div class="hero-btns">
@@ -249,7 +251,10 @@ footer{background:var(--bg2);border-top:1px solid var(--border)}
     <div class="foot-col"><h4>Connect</h4>
       <a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Twitter</a><a href="#">Email Signup</a></div>
   </div>
-  <div class="foot-base">© 2025 EOS Clothing Co. — All rights reserved.</div>
+  <div class="foot-base" style="display:flex;align-items:center;justify-content:center;gap:10px">
+    <img src="images/eos-logo-circle.jpg" alt="EOS Logo" style="width:28px;height:28px;border-radius:50%">
+    © 2025 EOS Clothing Co. — All rights reserved.
+  </div>
 </footer>
 
 <div class="overlay" id="overlay"></div>
